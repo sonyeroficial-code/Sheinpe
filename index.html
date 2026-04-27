@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>SHEIN</title>
-  <!-- PWA app web: iPhone + Android -->
+  <!-- PWA app web: iPhone + Android - v70 sin zoom -->
   <meta name="theme-color" content="#08080a" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,8 +13,7 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
 
   <style>
     *{
@@ -7150,6 +7149,32 @@
       .pwa-install-btn-v68{flex:1;}
     }
 
+  
+
+    /* v70: evitar zoom en iPhone y Android */
+    html, body{
+      width:100%;
+      max-width:100%;
+      overflow-x:hidden;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+      touch-action:manipulation;
+    }
+    .app{
+      width:100%;
+      max-width:430px;
+      overflow-x:hidden;
+    }
+    input, select, textarea, button{
+      font-size:16px !important;
+    }
+    input, select, textarea{
+      -webkit-user-select:text;
+      user-select:text;
+    }
+    img, video, canvas, svg{
+      max-width:100%;
+    }
   </style>
 </head>
 <body class="light">
@@ -13346,5 +13371,27 @@
     })();
 
   </script>
+
+<script>
+/* v70: bloquear zoom/pinch/doble toque en app web iPhone + Android */
+(function(){
+  var lastTouchEnd = 0;
+  document.addEventListener('touchstart', function(e){
+    if (e.touches && e.touches.length > 1) e.preventDefault();
+  }, { passive:false });
+  document.addEventListener('touchmove', function(e){
+    if (e.touches && e.touches.length > 1) e.preventDefault();
+  }, { passive:false });
+  document.addEventListener('touchend', function(e){
+    var now = Date.now();
+    if (now - lastTouchEnd <= 350) e.preventDefault();
+    lastTouchEnd = now;
+  }, { passive:false });
+  ['gesturestart','gesturechange','gestureend'].forEach(function(name){
+    document.addEventListener(name, function(e){ e.preventDefault(); }, { passive:false });
+  });
+})();
+</script>
+
 </body>
 </html>
