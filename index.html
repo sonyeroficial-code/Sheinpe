@@ -7175,7 +7175,555 @@
     img, video, canvas, svg{
       max-width:100%;
     }
-  </style>
+
+    /* v62 admin VIP editable */
+    .admin-plan-card-v62{border-radius:18px;background:var(--card-soft);border:1px solid var(--line);padding:12px;display:grid;gap:10px;}
+    .admin-plan-head-v62{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+    .admin-plan-head-v62 strong{display:block;font-size:15px;line-height:1.15;color:var(--text);margin-bottom:3px;}
+    .admin-plan-head-v62 span{display:block;font-size:11.5px;line-height:1.3;color:var(--muted);}
+    .admin-plan-badge-v62{padding:6px 9px;border-radius:999px;background:rgba(16,210,111,.10);border:1px solid rgba(16,210,111,.16);color:#0dbf66;font-size:10.5px;font-weight:900;white-space:nowrap;}
+    .admin-plan-presets-v62,.admin-plan-actions-v62,.admin-plan-grid-v62,.admin-plan-preview-v62{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+    .admin-plan-field-v62{display:grid;gap:5px;min-width:0;}
+    .admin-plan-field-v62 label{font-size:10.5px;color:var(--muted);font-weight:850;line-height:1.2;}
+    .admin-plan-field-v62 input,.admin-plan-field-v62 select{width:100%;min-height:39px;border:none;outline:none;border-radius:13px;padding:0 11px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-size:12.5px;font-weight:850;}
+    .admin-plan-preview-item-v62{border-radius:13px;background:var(--surface);border:1px solid var(--line);padding:8px;min-width:0;}
+    .admin-plan-preview-item-v62 span{display:block;font-size:10px;line-height:1.2;color:var(--muted);margin-bottom:3px;}
+    .admin-plan-preview-item-v62 strong{display:block;font-size:12px;line-height:1.18;color:var(--text);font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .admin-plan-note-v62{padding:9px 10px;border-radius:14px;background:color-mix(in srgb, var(--accent2) 7%, var(--surface));border:1px solid color-mix(in srgb, var(--accent2) 13%, var(--line));color:var(--muted);font-size:11px;line-height:1.35;}
+    @media(max-width:380px){.admin-plan-presets-v62,.admin-plan-actions-v62,.admin-plan-grid-v62,.admin-plan-preview-v62{grid-template-columns:1fr;}}
+
+  
+
+    /* v63: panel VIP mas claro + precio general y precio por usuario */
+    .admin-plan-card-v62.v63{
+      border-radius:22px;
+      padding:13px;
+      gap:12px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .admin-plan-section-v63{
+      border-radius:18px;
+      padding:12px;
+      background:var(--card-soft);
+      border:1px solid var(--line);
+      display:grid;
+      gap:10px;
+      overflow:hidden;
+    }
+    .admin-plan-section-v63.general{
+      background:
+        radial-gradient(circle at top right, rgba(35,217,255,.12), transparent 32%),
+        color-mix(in srgb, var(--card-soft) 96%, var(--accent2) 4%);
+    }
+    .admin-plan-section-v63.single{
+      background:
+        radial-gradient(circle at top left, rgba(99,255,154,.12), transparent 34%),
+        color-mix(in srgb, var(--card-soft) 96%, var(--accent1) 4%);
+    }
+    .admin-plan-title-v63{
+      display:grid;
+      grid-template-columns:34px 1fr auto;
+      gap:9px;
+      align-items:start;
+    }
+    .admin-plan-icon-v63{
+      width:34px;height:34px;border-radius:13px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      color:#061411;font-size:13px;font-weight:950;
+      box-shadow:0 8px 14px rgba(16,210,111,.12);
+      flex-shrink:0;
+    }
+    .admin-plan-title-v63 strong{display:block;font-size:15px;line-height:1.15;color:var(--text);margin-bottom:2px;}
+    .admin-plan-title-v63 span{display:block;font-size:11.2px;line-height:1.3;color:var(--muted);}
+    .admin-plan-badge-v62.v63{font-size:10px;padding:6px 8px;}
+    .admin-plan-presets-v63{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .admin-plan-preset-v63{
+      min-height:48px;border:none;border-radius:15px;padding:8px 10px;
+      font-size:12px;line-height:1.15;font-weight:950;cursor:pointer;
+      background:var(--surface);color:var(--text);border:1px solid var(--line);
+      box-shadow:0 7px 14px rgba(0,0,0,.045);
+    }
+    .admin-plan-preset-v63.primary{background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;border:none;}
+    .admin-plan-preset-v63:active{transform:scale(.985);}
+    .admin-plan-mini-note-v63{
+      display:flex;align-items:flex-start;gap:8px;
+      padding:9px 10px;border-radius:14px;
+      background:color-mix(in srgb, var(--accent2) 7%, var(--surface));
+      border:1px solid color-mix(in srgb, var(--accent2) 13%, var(--line));
+      color:var(--muted);font-size:10.8px;line-height:1.34;
+    }
+    .admin-plan-mini-note-v63 b{
+      width:19px;height:19px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+      color:#0dbf66;background:rgba(16,210,111,.12);font-size:11px;flex-shrink:0;
+    }
+    .admin-plan-grid-v62.v63{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+    .admin-plan-field-v62.v63 label{font-size:10.2px;}
+    .admin-plan-field-v62.v63 input,.admin-plan-field-v62.v63 select{min-height:38px;border-radius:13px;font-size:12px;background:var(--surface);}
+    .admin-plan-target-v63{display:grid;grid-template-columns:1fr auto;gap:8px;}
+    .admin-plan-target-v63 .admin-plan-field-v62{min-width:0;}
+    .admin-plan-target-v63 button{min-width:94px;}
+    .admin-plan-preview-v62.v63{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+    .admin-plan-preview-item-v62.v63{padding:8px;border-radius:13px;background:var(--surface);}
+    .admin-plan-preview-item-v62.v63 strong{font-size:11.5px;}
+    .admin-plan-actions-v62.v63{grid-template-columns:1.1fr .9fr;gap:8px;}
+    .admin-plan-user-label-v63{
+      display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;
+      padding:6px 9px;border-radius:999px;background:rgba(16,210,111,.10);border:1px solid rgba(16,210,111,.14);
+      color:#0dbf66;font-size:10.2px;font-weight:900;
+    }
+    .admin-user-plan-tag-v63{
+      display:inline-flex;margin-top:4px;width:max-content;max-width:100%;
+      padding:4px 7px;border-radius:999px;background:rgba(35,217,255,.10);border:1px solid rgba(35,217,255,.14);
+      color:#17a9d2;font-size:9.5px;font-weight:900;
+    }
+    @media(max-width:380px){
+      .admin-plan-presets-v63,.admin-plan-grid-v62.v63,.admin-plan-preview-v62.v63,.admin-plan-actions-v62.v63,.admin-plan-target-v63{grid-template-columns:1fr;}
+      .admin-plan-title-v63{grid-template-columns:32px 1fr;}
+      .admin-plan-badge-v62.v63{grid-column:2;width:max-content;}
+    }
+
+
+
+
+    .admin-confirm-backdrop-v64{
+      position:fixed;inset:0;z-index:9999;
+      background:rgba(9,12,18,.38);
+      display:flex;align-items:center;justify-content:center;
+      padding:18px;
+      backdrop-filter:blur(8px);
+    }
+    .admin-confirm-box-v64{
+      width:min(340px,100%);
+      border-radius:20px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:0 22px 70px rgba(0,0,0,.22);
+      padding:14px;
+      display:grid;gap:10px;
+      animation:adminConfirmInV64 .16s ease-out;
+    }
+    @keyframes adminConfirmInV64{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .admin-confirm-head-v64{display:flex;gap:10px;align-items:flex-start;}
+    .admin-confirm-icon-v64{width:34px;height:34px;border-radius:13px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:950;color:#061411;flex-shrink:0;}
+    .admin-confirm-head-v64 strong{display:block;font-size:14px;line-height:1.16;color:var(--text);}
+    .admin-confirm-head-v64 span{display:block;margin-top:3px;font-size:10.8px;line-height:1.32;color:var(--muted);white-space:pre-line;}
+    .admin-confirm-actions-v64{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .admin-confirm-actions-v64 button{min-height:40px;border-radius:14px;border:1px solid var(--line);font-size:12px !important;font-weight:950;background:var(--card-soft);color:var(--text);}
+    .admin-confirm-actions-v64 button.ok{border:0;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;}
+
+    /* v64: Planes VIP compactos, pantalla separada y confirmacion */
+    .admin-plan-card-v62.v63.v64{
+      border-radius:18px;
+      padding:10px;
+      gap:9px;
+      box-shadow:0 10px 24px rgba(0,0,0,.055);
+    }
+    .admin-plan-head-v62.v64 strong{font-size:14px;}
+    .admin-plan-head-v62.v64 span{font-size:10.6px;line-height:1.25;}
+    .admin-plan-tabs-v64{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:7px;
+      padding:4px;
+      border-radius:16px;
+      background:var(--card-soft);
+      border:1px solid var(--line);
+    }
+    .admin-plan-tab-v64{
+      min-height:38px;
+      border:0;
+      border-radius:13px;
+      background:transparent;
+      color:var(--muted);
+      font-size:11px !important;
+      font-weight:950;
+      line-height:1.1;
+      cursor:pointer;
+    }
+    .admin-plan-tab-v64.active{
+      color:#061411;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      box-shadow:0 8px 18px rgba(16,210,111,.16);
+    }
+    .admin-plan-section-v63.v64{
+      border-radius:16px;
+      padding:10px;
+      gap:8px;
+    }
+    .admin-plan-title-v63.v64{
+      grid-template-columns:30px 1fr auto;
+      gap:8px;
+      align-items:center;
+    }
+    .admin-plan-title-v63.v64 strong{font-size:13px;line-height:1.12;}
+    .admin-plan-title-v63.v64 span{font-size:10.3px;line-height:1.25;}
+    .admin-plan-icon-v63.v64{width:30px;height:30px;border-radius:12px;font-size:11px;}
+    .admin-plan-badge-v62.v63.v64{font-size:9.4px;padding:5px 7px;}
+    .admin-plan-choice-row-v64{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+    .admin-plan-choice-v64{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:9px;
+      min-height:72px;
+      background:var(--surface);
+      color:var(--text);
+      text-align:left;
+      cursor:pointer;
+      box-shadow:0 6px 12px rgba(0,0,0,.035);
+    }
+    .admin-plan-choice-v64.primary{background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;border:0;}
+    .admin-plan-choice-v64 strong{display:block;font-size:13px;line-height:1.15;margin-bottom:4px;}
+    .admin-plan-choice-v64 span{display:block;font-size:10px;line-height:1.22;color:inherit;opacity:.78;}
+    .admin-plan-choice-v64:active{transform:scale(.985);}
+    .admin-plan-grid-v62.v63.v64{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+    .admin-plan-field-v62.v63.v64{gap:4px;}
+    .admin-plan-field-v62.v63.v64 label{font-size:9.7px;}
+    .admin-plan-field-v62.v63.v64 input,.admin-plan-field-v62.v63.v64 select{
+      min-height:34px;
+      border-radius:12px;
+      padding:0 10px;
+      font-size:11.5px !important;
+    }
+    .admin-plan-mini-note-v63.v64{padding:8px 9px;border-radius:13px;font-size:10px;gap:7px;}
+    .admin-plan-mini-note-v63.v64 b{width:18px;height:18px;font-size:10px;}
+    .admin-plan-preview-v62.v63.v64{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
+    .admin-plan-preview-item-v62.v63.v64{padding:7px;border-radius:12px;}
+    .admin-plan-preview-item-v62.v63.v64 span{font-size:9.5px;margin-bottom:2px;}
+    .admin-plan-preview-item-v62.v63.v64 strong{font-size:10.5px;}
+    .admin-plan-actions-v62.v63.v64{grid-template-columns:1fr 1fr;gap:7px;}
+    .admin-plan-actions-v62.v63.v64 .admin-btn{min-height:38px;border-radius:13px;font-size:11px !important;}
+    .admin-plan-user-search-v64{display:grid;gap:7px;}
+    .admin-plan-user-results-v64{display:grid;gap:6px;max-height:210px;overflow:auto;padding-right:2px;}
+    .admin-plan-user-row-v64{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:8px;
+      align-items:center;
+      padding:8px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:var(--surface);
+    }
+    .admin-plan-user-row-v64 strong{display:block;font-size:11.5px;line-height:1.15;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .admin-plan-user-row-v64 span{display:block;font-size:9.7px;line-height:1.2;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:185px;}
+    .admin-plan-user-row-v64 button{min-height:30px;border-radius:11px;padding:0 10px;font-size:10px !important;}
+    .admin-plan-user-label-v63.v64{font-size:9.7px;padding:5px 8px;}
+    .admin-plan-confirm-text-v64{font-size:10px;line-height:1.28;color:var(--muted);text-align:center;}
+    @media(max-width:380px){
+      .admin-plan-choice-row-v64,.admin-plan-grid-v62.v63.v64,.admin-plan-preview-v62.v63.v64,.admin-plan-actions-v62.v63.v64{grid-template-columns:1fr;}
+      .admin-plan-title-v63.v64{grid-template-columns:30px 1fr;}
+      .admin-plan-badge-v62.v63.v64{grid-column:2;width:max-content;}
+    }
+
+
+    /* v65: mostrar plan actual para admin y usuario */
+    .current-plan-user-v65{
+      width:100%;border:1px solid color-mix(in srgb,var(--accent2) 16%,var(--line));
+      background:linear-gradient(135deg,rgba(83,246,164,.10),rgba(35,203,230,.10));
+      border-radius:16px;padding:10px 12px;margin:8px 0 10px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;
+      text-align:left;color:var(--text);box-shadow:0 8px 18px rgba(0,0,0,.045);
+    }
+    .current-plan-user-v65 span{display:block;font-size:10.2px;color:var(--muted);font-weight:800;line-height:1.2;}
+    .current-plan-user-v65 strong{display:block;font-size:13px;color:var(--text);font-weight:950;line-height:1.15;margin-top:2px;}
+    .current-plan-user-v65 small{display:block;font-size:10.5px;color:var(--muted);line-height:1.25;margin-top:3px;}
+    .current-plan-user-v65 b{display:flex;align-items:center;justify-content:center;min-width:42px;height:34px;border-radius:13px;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;font-size:11px;font-weight:950;box-shadow:0 8px 17px rgba(16,210,111,.18);}
+    .current-plan-recharge-v65{margin:8px 0 0;padding:8px 10px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;}
+    .current-plan-recharge-v65 span{display:block;font-size:10px;color:var(--muted);font-weight:800;line-height:1.15;}
+    .current-plan-recharge-v65 strong{display:block;font-size:12px;color:var(--text);font-weight:950;line-height:1.2;margin-top:2px;}
+    .current-plan-recharge-v65 b{font-size:9.5px;font-weight:950;color:#0dbf66;background:rgba(16,210,111,.10);border:1px solid rgba(16,210,111,.14);border-radius:999px;padding:5px 7px;white-space:nowrap;}
+    .admin-current-plan-v65{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 10px;border-radius:14px;background:linear-gradient(135deg,rgba(83,246,164,.10),rgba(35,203,230,.08));border:1px solid color-mix(in srgb,var(--accent2) 13%,var(--line));}
+    .admin-current-plan-v65 span{display:block;font-size:9.8px;color:var(--muted);font-weight:850;line-height:1.2;}
+    .admin-current-plan-v65 strong{display:block;font-size:12.5px;color:var(--text);font-weight:950;line-height:1.2;margin-top:2px;}
+    .admin-current-plan-v65 small{display:block;font-size:10px;color:var(--muted);line-height:1.25;margin-top:3px;}
+    .admin-current-plan-v65 b{font-size:9.5px;font-weight:950;color:#061411;border-radius:999px;padding:6px 8px;background:linear-gradient(135deg,var(--accent1),var(--accent2));white-space:nowrap;}
+    .admin-plan-section-v63.v64{padding:9px;}
+    .admin-plan-choice-v64{min-height:62px;padding:8px;}
+    .admin-plan-choice-v64 strong{font-size:12.4px;}
+    .admin-plan-choice-v64 span{font-size:9.6px;}
+    #screen-recarga .recharge-card-v41{padding:14px;border-radius:21px;}
+    #screen-recarga .recharge-head-v41 h3{font-size:20px;}
+    #screen-recarga .recharge-head-v41 p{font-size:12px;line-height:1.35;}
+    @media(max-width:380px){.current-plan-user-v65,.admin-current-plan-v65{grid-template-columns:1fr}.current-plan-user-v65 b,.admin-current-plan-v65 b{width:max-content}}
+
+
+    /* v66: planes VIP mas claros, compactos y visibles */
+    .admin-plan-card-v62.v63.v64{
+      padding:8px !important;
+      border-radius:16px !important;
+      gap:8px !important;
+    }
+    .admin-plan-head-v62.v64 strong{font-size:13px !important;}
+    .admin-plan-head-v62.v64 span{font-size:10px !important;line-height:1.22 !important;}
+    .admin-plan-tabs-v64{
+      gap:5px !important;
+      padding:3px !important;
+      border-radius:14px !important;
+    }
+    .admin-plan-tab-v64{
+      min-height:34px !important;
+      border-radius:12px !important;
+      font-size:10.5px !important;
+    }
+    .admin-plan-tab-v64 strong{display:block;font-size:11px;line-height:1.05;}
+    .admin-plan-tab-v64 span{display:block;font-size:8.5px;font-weight:850;opacity:.72;line-height:1.05;margin-top:2px;}
+    .admin-plan-section-v63.v64{
+      padding:8px !important;
+      border-radius:15px !important;
+      gap:7px !important;
+    }
+    .admin-plan-title-v63.v64{grid-template-columns:28px 1fr auto !important;gap:7px !important;}
+    .admin-plan-title-v63.v64 strong{font-size:12.4px !important;}
+    .admin-plan-title-v63.v64 span{font-size:9.7px !important;}
+    .admin-plan-icon-v63.v64{width:28px !important;height:28px !important;border-radius:11px !important;font-size:10px !important;}
+    .admin-plan-badge-v62.v63.v64{font-size:8.8px !important;padding:4px 7px !important;}
+    .admin-plan-choice-row-v64{gap:6px !important;}
+    .admin-plan-choice-v64{
+      min-height:52px !important;
+      padding:7px 8px !important;
+      border-radius:12px !important;
+    }
+    .admin-plan-choice-v64 strong{font-size:11px !important;line-height:1.12 !important;margin-bottom:2px !important;}
+    .admin-plan-choice-v64 span{font-size:8.8px !important;line-height:1.18 !important;}
+    .admin-plan-grid-v62.v63.v64{gap:6px !important;}
+    .admin-plan-field-v62.v63.v64 label{font-size:9px !important;}
+    .admin-plan-field-v62.v63.v64 input,.admin-plan-field-v62.v63.v64 select{
+      min-height:31px !important;
+      border-radius:11px !important;
+      font-size:10.5px !important;
+      padding:0 9px !important;
+    }
+    .admin-plan-mini-note-v63.v64{padding:7px 8px !important;font-size:9.3px !important;border-radius:12px !important;}
+    .admin-plan-preview-v62.v63.v64{gap:5px !important;}
+    .admin-plan-preview-item-v62.v63.v64{padding:6px !important;border-radius:11px !important;}
+    .admin-plan-preview-item-v62.v63.v64 span{font-size:8.8px !important;}
+    .admin-plan-preview-item-v62.v63.v64 strong{font-size:9.7px !important;}
+    .admin-plan-actions-v62.v63.v64 .admin-btn{min-height:34px !important;border-radius:12px !important;font-size:10.2px !important;}
+    .admin-current-plan-v65.v66{
+      padding:8px !important;
+      border-radius:13px !important;
+      background:linear-gradient(135deg,rgba(83,246,164,.12),rgba(35,203,230,.10)) !important;
+    }
+    .admin-current-plan-v65.v66.special{
+      background:linear-gradient(135deg,rgba(35,203,230,.18),rgba(83,246,164,.14)) !important;
+      border-color:rgba(35,203,230,.24) !important;
+    }
+    .admin-current-plan-v65.v66 span{font-size:9px !important;text-transform:uppercase;letter-spacing:.02em;}
+    .admin-current-plan-v65.v66 strong{font-size:11.4px !important;}
+    .admin-current-plan-v65.v66 small{font-size:9.1px !important;}
+    .admin-current-plan-v65.v66 b{font-size:8.7px !important;padding:5px 7px !important;}
+    .admin-plan-status-v66{
+      display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center;
+      padding:8px;border-radius:13px;border:1px solid rgba(16,210,111,.18);
+      background:linear-gradient(135deg,rgba(83,246,164,.13),rgba(255,255,255,.62));
+    }
+    .admin-plan-status-v66.special{border-color:rgba(35,203,230,.22);background:linear-gradient(135deg,rgba(35,203,230,.16),rgba(83,246,164,.10));}
+    .admin-plan-status-v66 span{display:block;color:var(--muted);font-size:8.8px;font-weight:900;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;}
+    .admin-plan-status-v66 strong{display:block;color:var(--text);font-size:11.5px;font-weight:950;line-height:1.15;margin-top:2px;}
+    .admin-plan-status-v66 small{display:block;color:var(--muted);font-size:9.1px;line-height:1.22;margin-top:2px;}
+    .admin-plan-status-v66 em{font-style:normal;display:inline-flex;align-items:center;justify-content:center;min-width:50px;height:28px;border-radius:999px;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;font-size:8.8px;font-weight:950;}
+    .admin-plan-status-v66 .mini-danger{height:28px;border:1px solid rgba(255,100,100,.18);background:rgba(255,100,100,.08);color:#c84a4a;border-radius:999px;padding:0 9px;font-size:8.8px;font-weight:950;}
+    .admin-special-list-v66{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:7px;margin-top:2px;}
+    .admin-special-list-v66 h4{margin:0;font-size:11px;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+    .admin-special-list-v66 h4 span{font-size:8.8px;color:#079dca;background:rgba(35,203,230,.10);border:1px solid rgba(35,203,230,.14);border-radius:999px;padding:4px 7px;font-weight:950;}
+    .admin-special-empty-v66{padding:8px;border-radius:12px;background:var(--surface);border:1px dashed var(--line);font-size:9.5px;color:var(--muted);line-height:1.25;text-align:center;}
+    .admin-special-user-row-v66{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;padding:7px;border-radius:12px;background:var(--surface);border:1px solid rgba(35,203,230,.15);}
+    .admin-special-user-row-v66 strong{display:block;font-size:10.4px;color:var(--text);line-height:1.12;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .admin-special-user-row-v66 span{display:block;font-size:8.8px;color:var(--muted);line-height:1.18;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;margin-top:2px;}
+    .admin-special-user-row-v66 small{display:inline-flex;width:max-content;margin-top:4px;padding:3px 6px;border-radius:999px;background:rgba(35,203,230,.10);border:1px solid rgba(35,203,230,.12);font-size:8.3px;font-weight:950;color:#0aa3c7;}
+    .admin-special-user-row-v66 .actions{display:flex;gap:4px;flex-direction:column;}
+    .admin-special-user-row-v66 button{min-height:27px;border-radius:10px;padding:0 8px;font-size:8.8px !important;}
+    .admin-plan-user-results-v64{max-height:150px !important;}
+    .admin-user-plan-chip-v66{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding:7px 8px;border-radius:12px;border:1px solid var(--line);background:var(--card-soft);}
+    .admin-user-plan-chip-v66 span{font-size:8.7px;color:var(--muted);font-weight:900;text-transform:uppercase;}
+    .admin-user-plan-chip-v66 strong{font-size:10.6px;color:var(--text);line-height:1.15;}
+    .admin-user-plan-chip-v66.special{border-color:rgba(35,203,230,.20);background:linear-gradient(135deg,rgba(35,203,230,.14),rgba(83,246,164,.10));}
+    .admin-user-plan-chip-v66.special span{color:#079dca;}
+    .current-plan-user-v65{
+      padding:8px 10px !important;
+      border-radius:14px !important;
+      border-color:rgba(16,210,111,.22) !important;
+      background:linear-gradient(135deg,rgba(83,246,164,.12),rgba(35,203,230,.09)) !important;
+    }
+    .current-plan-user-v65 span{font-size:9.4px !important;text-transform:uppercase;letter-spacing:.02em;}
+    .current-plan-user-v65 strong{font-size:12px !important;}
+    .current-plan-user-v65 small{font-size:9.4px !important;}
+    .current-plan-user-v65 b{height:29px !important;min-width:54px !important;font-size:8.9px !important;}
+    .current-plan-recharge-v65{padding:7px 9px !important;border-radius:13px !important;background:linear-gradient(135deg,rgba(83,246,164,.09),rgba(35,203,230,.07)) !important;}
+    .current-plan-recharge-v65 span{font-size:9px !important;text-transform:uppercase;letter-spacing:.02em;}
+    .current-plan-recharge-v65 strong{font-size:11px !important;}
+    .current-plan-recharge-v65 b{font-size:8.5px !important;padding:4px 7px !important;}
+
+  
+
+  /* v67: Planes VIP mas compactos y secciones claras */
+  .admin-plan-card-v62.v63.v64{
+    padding:7px !important;
+    border-radius:15px !important;
+    gap:7px !important;
+  }
+  .admin-plan-head-v62.v64{
+    align-items:center !important;
+    gap:7px !important;
+  }
+  .admin-plan-head-v62.v64 strong{
+    font-size:12.4px !important;
+    line-height:1.08 !important;
+  }
+  .admin-plan-head-v62.v64 span{
+    font-size:9.2px !important;
+    line-height:1.18 !important;
+  }
+  .admin-plan-tabs-v64{
+    padding:3px !important;
+    gap:4px !important;
+    border-radius:13px !important;
+  }
+  .admin-plan-tab-v64{
+    min-height:31px !important;
+    border-radius:11px !important;
+    font-size:10px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:1px !important;
+  }
+  .admin-plan-tab-v64 strong{font-size:10.6px !important;line-height:1 !important;}
+  .admin-plan-tab-v64 span{font-size:7.9px !important;line-height:1 !important;opacity:.76 !important;}
+  .admin-plan-section-v63.v64{
+    padding:7px !important;
+    border-radius:14px !important;
+    gap:6px !important;
+  }
+  .admin-plan-title-v63.v64{
+    grid-template-columns:25px 1fr auto !important;
+    gap:6px !important;
+  }
+  .admin-plan-title-v63.v64 strong{font-size:11.5px !important;line-height:1.08 !important;}
+  .admin-plan-title-v63.v64 span{font-size:9px !important;line-height:1.16 !important;}
+  .admin-plan-icon-v63.v64{width:25px !important;height:25px !important;border-radius:10px !important;font-size:9px !important;}
+  .admin-plan-badge-v62.v63.v64{font-size:8px !important;padding:3.5px 6px !important;}
+  .admin-plan-choice-row-v64{gap:5px !important;}
+  .admin-plan-choice-v64{
+    min-height:44px !important;
+    padding:6px 7px !important;
+    border-radius:11px !important;
+  }
+  .admin-plan-choice-v64 strong{font-size:10.1px !important;line-height:1.08 !important;margin:0 !important;}
+  .admin-plan-choice-v64 span{font-size:8px !important;line-height:1.12 !important;margin-top:2px !important;}
+  .admin-plan-grid-v62.v63.v64{gap:5px !important;}
+  .admin-plan-field-v62.v63.v64{gap:3px !important;}
+  .admin-plan-field-v62.v63.v64 label{font-size:8.4px !important;line-height:1.1 !important;}
+  .admin-plan-field-v62.v63.v64 input,
+  .admin-plan-field-v62.v63.v64 select{
+    min-height:29px !important;
+    border-radius:10px !important;
+    font-size:10px !important;
+    padding:0 8px !important;
+  }
+  .admin-plan-mini-note-v63.v64{
+    padding:6px 7px !important;
+    font-size:8.7px !important;
+    line-height:1.18 !important;
+    border-radius:11px !important;
+  }
+  .admin-plan-mini-note-v63.v64 b{width:16px !important;height:16px !important;font-size:9px !important;}
+  .admin-plan-preview-v62.v63.v64{gap:4px !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .admin-plan-preview-item-v62.v63.v64{padding:5px 6px !important;border-radius:10px !important;}
+  .admin-plan-preview-item-v62.v63.v64 span{font-size:7.8px !important;margin-bottom:1px !important;}
+  .admin-plan-preview-item-v62.v63.v64 strong{font-size:8.9px !important;line-height:1.05 !important;}
+  .admin-plan-actions-v62.v63.v64{gap:5px !important;}
+  .admin-plan-actions-v62.v63.v64 .admin-btn{min-height:31px !important;border-radius:11px !important;font-size:9.4px !important;}
+  .admin-plan-status-v66{
+    padding:6px 7px !important;
+    border-radius:12px !important;
+    gap:5px !important;
+  }
+  .admin-plan-status-v66 span{font-size:7.8px !important;}
+  .admin-plan-status-v66 strong{font-size:10.2px !important;line-height:1.08 !important;}
+  .admin-plan-status-v66 small{font-size:8px !important;line-height:1.12 !important;}
+  .admin-plan-status-v66 em{height:24px !important;min-width:43px !important;font-size:7.8px !important;padding:0 6px !important;}
+  .admin-plan-status-v66 .mini-danger{
+    height:24px !important;
+    min-width:0 !important;
+    padding:0 7px !important;
+    font-size:7.8px !important;
+    border-radius:999px !important;
+  }
+  .admin-vip-special-summary-v67{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:7px;
+    padding:7px;
+    border-radius:13px;
+    border:1px solid rgba(35,203,230,.16);
+    background:linear-gradient(135deg,rgba(35,203,230,.12),rgba(83,246,164,.08));
+  }
+  .admin-vip-special-summary-v67 .count{
+    width:28px;height:28px;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--accent1),var(--accent2));
+    color:#061411;font-weight:950;font-size:11px;
+  }
+  .admin-vip-special-summary-v67 strong{display:block;font-size:10.8px;line-height:1.08;color:var(--text);}
+  .admin-vip-special-summary-v67 span{display:block;font-size:8.5px;line-height:1.13;color:var(--muted);margin-top:2px;}
+  .admin-vip-special-summary-v67 b{font-size:7.8px;padding:4px 6px;border-radius:999px;background:#fff;border:1px solid var(--line);white-space:nowrap;}
+  .admin-special-list-v66{
+    gap:5px !important;
+    border-top:0 !important;
+    padding-top:0 !important;
+    margin-top:0 !important;
+  }
+  .admin-special-list-v66 h4{
+    font-size:10px !important;
+    padding:0 1px !important;
+  }
+  .admin-special-list-v66 h4 span{
+    font-size:7.8px !important;
+    padding:3px 6px !important;
+  }
+  .admin-special-empty-v66{
+    padding:7px !important;
+    border-radius:11px !important;
+    font-size:8.7px !important;
+  }
+  .admin-special-user-row-v66{
+    padding:6px !important;
+    border-radius:11px !important;
+    gap:5px !important;
+  }
+  .admin-special-user-row-v66 strong{font-size:9.8px !important;line-height:1.05 !important;}
+  .admin-special-user-row-v66 span{font-size:8px !important;line-height:1.1 !important;max-width:170px !important;}
+  .admin-special-user-row-v66 small{font-size:7.7px !important;padding:3px 5px !important;}
+  .admin-special-user-row-v66 .actions{gap:3px !important;}
+  .admin-special-user-row-v66 button{
+    min-height:23px !important;
+    border-radius:9px !important;
+    padding:0 6px !important;
+    font-size:7.8px !important;
+  }
+  .admin-plan-user-results-v64{max-height:118px !important;gap:4px !important;}
+  .admin-plan-user-row-v64{padding:6px !important;border-radius:11px !important;gap:5px !important;}
+  .admin-plan-user-row-v64 strong{font-size:9.9px !important;}
+  .admin-plan-user-row-v64 span{font-size:8px !important;}
+  .admin-plan-user-row-v64 .admin-btn{min-height:25px !important;font-size:8px !important;border-radius:9px !important;padding:0 7px !important;}
+  .admin-user-plan-chip-v66{
+    padding:6px 7px !important;
+    border-radius:11px !important;
+    gap:5px !important;
+  }
+  .admin-user-plan-chip-v66 span{font-size:7.8px !important;}
+  .admin-user-plan-chip-v66 strong{font-size:9.5px !important;}
+  .admin-user-plan-chip-v66 b{font-size:8px !important;padding:4px 6px;border-radius:999px;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#061411;}
+  @media(max-width:380px){
+    .admin-plan-grid-v62.v63.v64{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+    .admin-plan-preview-v62.v63.v64{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  }
+</style>
 </head>
 <body class="light">
   <div class="app">
@@ -7372,6 +7920,14 @@
               </div>
             </button>
           </div>
+          <button class="current-plan-user-v65" type="button" onclick="openSubScreen('rango')">
+            <div>
+              <span>Plan actual</span>
+              <strong id="profileCurrentPlanTitleV65">Precio general · VIP1</strong>
+              <small id="profileCurrentPlanMetaV65">Recarga S/ 10.00 · gana S/ 5.00</small>
+            </div>
+            <b id="profileCurrentPlanModeV65">Lineal</b>
+          </button>
           <div class="profile-grid-4 v33-compact">
             <button class="mini-card-2" onclick="showToast(t('coupons'))">
               <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 11h8"/></svg>
@@ -7908,6 +8464,7 @@
               <button class="admin-tab" data-admin-tab="withdrawals" onclick="setAdminTab('withdrawals', this)">Retiros</button>
               <button class="admin-tab" data-admin-tab="transfers" onclick="setAdminTab('transfers', this)">Movimientos</button>
               <button class="admin-tab" data-admin-tab="orders" onclick="setAdminTab('orders', this)">Pedidos <span id="adminOrdersDot" class="admin-event-dot-v47 hidden">0</span></button>
+              <button class="admin-tab" data-admin-tab="plans" onclick="setAdminTab('plans', this)">Planes VIP</button>
             </div>
             <div class="admin-search-row-v47">
               <input class="admin-input full" id="adminSearchInput" type="search" placeholder="Buscar usuario, correo, UID o estado" oninput="renderAdminPanel()">
@@ -7987,6 +8544,13 @@
             <div class="recharge-plan-mini-v42">
               <div class="plan-box"><span>Nivel actual</span><strong id="rechargeVipLevel">VIP1</strong></div>
               <div class="plan-box"><span>Ganancia de ronda</span><strong id="rechargeVipGain">S/ 10.00</strong></div>
+            </div>
+            <div class="current-plan-recharge-v65">
+              <div>
+                <span>Plan activo</span>
+                <strong id="rechargeCurrentPlanTextV65">Precio general · Lineal</strong>
+              </div>
+              <b id="rechargeCurrentPlanTagV65">GENERAL</b>
             </div>
 
             <div class="recharge-section-title-v41" id="rechargeSectionTitle">Selecciona monto VIP</div>
@@ -10328,6 +10892,46 @@
     ];
 
     const DEMO_STATE_KEY = 'tv_demo_task_state_v42';
+    const VIP_SETTINGS_KEY_V62 = 'tienda_vip_settings_v62';
+    const DEFAULT_VIP_SETTINGS_V62 = {mode:'linear',baseRecharge:10,rechargeStep:10,baseGain:5,gainStep:5,taskCount:5,active:true,plans:null};
+    function normalizeVipSettingsV62(raw){
+      const base = DEFAULT_VIP_SETTINGS_V62;
+      const data = raw && typeof raw === 'object' ? raw : {};
+      const mode = String(data.mode || base.mode).toLowerCase() === 'double' ? 'double' : 'linear';
+      const next = {...base,...data,mode,baseRecharge:Math.max(1,Number(data.baseRecharge ?? base.baseRecharge)||base.baseRecharge),rechargeStep:Math.max(0,Number(data.rechargeStep ?? base.rechargeStep)||base.rechargeStep),baseGain:Math.max(1,Number(data.baseGain ?? base.baseGain)||base.baseGain),gainStep:Math.max(0,Number(data.gainStep ?? base.gainStep)||base.gainStep),taskCount:Math.max(1,Math.min(20,Math.floor(Number(data.taskCount ?? base.taskCount)||base.taskCount))),active:data.active !== false};
+      if(data.plans && typeof data.plans === 'object'){
+        const plans = {};
+        Object.keys(data.plans).forEach(key => { const item = data.plans[key] || {}; const level = Math.max(1,Math.floor(Number(item.level || item.vip || String(key).replace(/[^0-9]/g,'') || 1))); plans[level] = {level,name:item.name || ('VIP'+level),recharge:Number(item.recharge ?? item.rechargeRequired ?? 0) || 0,gain:Number(item.gain ?? item.rewardTotal ?? 0) || 0,taskCount:Number(item.taskCount || next.taskCount || 5) || 5,active:item.active !== false}; });
+        next.plans = plans;
+      } else next.plans = null;
+      return next;
+    }
+    function readVipSettingsV62(){ try{return normalizeVipSettingsV62(JSON.parse(localStorage.getItem(VIP_SETTINGS_KEY_V62) || 'null'));}catch(error){return normalizeVipSettingsV62(DEFAULT_VIP_SETTINGS_V62);} }
+    let vipSettingsV62 = readVipSettingsV62();
+    window.vipSettingsV62 = vipSettingsV62;
+    function buildVipPlanForSettingsV62(settings, cycle){
+      settings = normalizeVipSettingsV62(settings || vipSettingsV62); cycle = Math.max(1, Math.floor(Number(cycle || 1)));
+      const explicit = settings.plans && settings.plans[cycle] ? settings.plans[cycle] : null;
+      const labels = ['Bronce','Plata','Oro','Platino','Diamante','Elite','Master','Premium','Leyenda','Supremo','Máximo'];
+      const label = labels[Math.min(cycle - 1, labels.length - 1)] || 'VIP';
+      let recharge = 0, gain = 0;
+      if(explicit && explicit.active !== false && Number(explicit.recharge || 0) > 0){ recharge = Number(explicit.recharge || 0); gain = Number(explicit.gain || 0); }
+      else if(settings.mode === 'double'){ const safePow = Math.min(cycle - 1, 10); recharge = Number(settings.baseRecharge || 20) * Math.pow(2, safePow); gain = Number(settings.baseGain || 10) * Math.pow(2, safePow); }
+      else { recharge = Number(settings.baseRecharge || 10) + (cycle - 1) * Number(settings.rechargeStep || 10); gain = Number(settings.baseGain || 5) + (cycle - 1) * Number(settings.gainStep || 5); }
+      const taskCount = Number(settings.taskCount || 5);
+      return {vip:cycle,level:cycle,badge:'VIP'+cycle,name:'VIP'+cycle,recharge:Number(recharge.toFixed(2)),rechargeRequired:Number(recharge.toFixed(2)),gain:Number(gain.toFixed(2)),rewardTotal:Number(gain.toFixed(2)),minGain:Number(gain.toFixed(2)),maxGain:Number(gain.toFixed(2)),taskCount,rewardPerTask:Number((gain/Math.max(1,taskCount)).toFixed(2)),label};
+    }
+    function applyVipSettingsV62(settings, silent=false){
+      vipSettingsV62 = normalizeVipSettingsV62(settings); window.vipSettingsV62 = vipSettingsV62;
+      try{localStorage.setItem(VIP_SETTINGS_KEY_V62, JSON.stringify(vipSettingsV62));}catch(error){}
+      if(!silent) showToast('Planes VIP actualizados');
+      try{renderRechargeScreen();renderIntroScreen();renderRankScreen();updateHomeDemoCards();renderAdminPanel();}catch(error){}
+    }
+    window.normalizeVipSettingsV62 = normalizeVipSettingsV62;
+    window.getVipSettingsV62 = () => vipSettingsV62;
+    window.applyVipSettingsV62 = applyVipSettingsV62;
+    window.buildVipPlanForSettingsV62 = buildVipPlanForSettingsV62;
+    window.activeVipPlanSourceV65 = window.activeVipPlanSourceV65 || 'general';
 
     function defaultDemoState(){
       return {
@@ -10435,20 +11039,7 @@
 
     function getVipPlan(cycle=getDemoCycle()){
       cycle = Math.max(1, Math.floor(clampNumber(cycle, 1)));
-      const safePow = Math.min(cycle - 1, 10);
-      const recharge = 20 * Math.pow(2, safePow);
-      const gain = 10 * Math.pow(2, safePow);
-      const labels = ['Bronce','Plata','Oro','Platino','Diamante','Elite','Master','Premium','Leyenda','Supremo','Máximo'];
-      const label = labels[Math.min(cycle - 1, labels.length - 1)] || 'VIP';
-      return {
-        vip: cycle,
-        badge: 'VIP' + cycle,
-        recharge: Number(recharge.toFixed(2)),
-        gain: Number(gain.toFixed(2)),
-        minGain: Number(gain.toFixed(2)),
-        maxGain: Number(gain.toFixed(2)),
-        label
-      };
+      return buildVipPlanForSettingsV62(vipSettingsV62, cycle);
     }
 
     function getCycleTargetGain(cycle=getDemoCycle()){
@@ -10880,6 +11471,10 @@
       if (gain) gain.textContent = money(getCycleTotalGain());
       if (title) title.textContent = 'Monto permitido para VIP' + getDemoCycle();
       if (note) note.textContent = 'Este VIP solo permite solicitar ' + money(plan.recharge) + '. Tu saldo no cambia hasta que el gerente apruebe la recarga.';
+      const planTextV65 = document.getElementById('rechargeCurrentPlanTextV65');
+      const planTagV65 = document.getElementById('rechargeCurrentPlanTagV65');
+      if (planTextV65) planTextV65.textContent = vipPlanSourceTextV65() + ' · ' + vipPlanKindTextV65(vipSettingsV62) + ' · ' + vipPlanModeTextV65(vipSettingsV62);
+      if (planTagV65) planTagV65.textContent = vipPlanTagTextV65();
       const preview = document.getElementById('rechargeMessagePreviewV51');
       if (preview) preview.textContent = buildRechargeMessageV51(Number(selectedRechargeAmountV41 || 0));
     }
@@ -11533,6 +12128,14 @@
       if (rechargeValue) rechargeValue.textContent = 'S/ +';
       if (rechargeHint) rechargeHint.textContent = 'Saldo: ' + totalText;
       if (dailyEarnings) dailyEarnings.textContent = money(shouldHideAccountData() ? 0 : Number(demoState.rewardToday || 0));
+      const planNowV65 = getVipPlan();
+      const planTitleV65 = document.getElementById('profileCurrentPlanTitleV65');
+      const planMetaV65 = document.getElementById('profileCurrentPlanMetaV65');
+      const planModeV65 = document.getElementById('profileCurrentPlanModeV65');
+      if (planTitleV65) planTitleV65.textContent = vipPlanSourceTextV65() + ' · VIP' + getDemoCycle();
+      if (planMetaV65) planMetaV65.textContent = vipPlanKindTextV65(vipSettingsV62) + ' · recarga ' + money(planNowV65.recharge) + ' · gana ' + money(planNowV65.gain);
+      if (planModeV65) planModeV65.textContent = vipPlanModeTextV65(vipSettingsV62);
+
       const points = document.getElementById('pointsLabel');
       if (points) points.textContent = info.rank.name.replace('Clasificación ', '');
       const wallet = document.getElementById('walletLabel');
@@ -12041,7 +12644,7 @@
 
     /* v44 admin UI helpers */
     let adminCurrentTab = 'users';
-    let adminCache = {users:[], recharges:[], withdrawals:[], transfers:[], orders:[]};
+    let adminCache = {users:[], recharges:[], withdrawals:[], transfers:[], orders:[], vipSettings:null};
 
     function updateAdminVisibility(){
       const panel = document.getElementById('adminEntryPanel');
@@ -12160,6 +12763,11 @@
         noticeEl.classList.toggle('show', pendingAlerts > 0);
         noticeEl.textContent = pendingAlerts > 0 ? ('Tienes ' + pendingAlerts + ' solicitudes nuevas por revisar y ' + ordersArr.length + ' pedidos registrados.') : (ordersArr.length ? ('Pedidos registrados: ' + ordersArr.length + '. Revisa la pestaña Pedidos.') : 'Sin alertas nuevas.');
       }
+      const searchRow = document.querySelector('#screen-admin .admin-search-row-v47');
+      const quickPanel = document.querySelector('#screen-admin .admin-quick-panel-v47');
+      const planMode = adminCurrentTab === 'plans';
+      if (searchRow) searchRow.classList.toggle('hidden', planMode);
+      if (quickPanel) quickPanel.classList.toggle('hidden', planMode);
       if (!list) return;
       if (!enabled){
         list.innerHTML = '<div class="admin-empty">Conecta la base de datos para activar usuarios y panel admin.</div>';
@@ -12173,7 +12781,286 @@
       if (adminCurrentTab === 'recharges') return renderAdminRecords(list, filterAdminItems(adminCache.recharges || []), 'Recargas solicitadas');
       if (adminCurrentTab === 'withdrawals') return renderAdminRecords(list, filterAdminItems(adminCache.withdrawals || []), 'Retiros solicitados');
       if (adminCurrentTab === 'orders') return renderAdminRecords(list, filterAdminItems(adminCache.orders || []), 'Pedidos de clientes');
+      if (adminCurrentTab === 'plans') return renderAdminVipPlansV62(list);
       return renderAdminRecords(list, filterAdminItems(adminCache.transfers || []), 'Transferencias');
+    }
+
+    function getAdminVipSettingsV62(){ return normalizeVipSettingsV62(adminCache.vipSettings || (window.getVipSettingsV62 ? window.getVipSettingsV62() : DEFAULT_VIP_SETTINGS_V62)); }
+    let adminVipPlanViewV64 = 'general';
+    function vipPlanPreviewHtmlV63(settings, wrapClass=''){
+      return Array.from({length:8},(_,i)=>buildVipPlanForSettingsV62(settings,i+1)).map(plan=>`
+        <div class="admin-plan-preview-item-v62 v63 v64 ${wrapClass}">
+          <span>${plan.badge}</span>
+          <strong>${money(plan.recharge)} · gana ${money(plan.gain)}</strong>
+        </div>`).join('');
+    }
+    function adminPresetSettingsV64(kind){
+      if(kind === 'doubleOld') return normalizeVipSettingsV62({mode:'double',baseRecharge:20,rechargeStep:10,baseGain:10,gainStep:5,taskCount:5,active:true,plans:null});
+      return normalizeVipSettingsV62({mode:'linear',baseRecharge:10,rechargeStep:10,baseGain:5,gainStep:5,taskCount:5,active:true,plans:null});
+    }
+    function adminPlanSummaryV64(settings){
+      const p1 = buildVipPlanForSettingsV62(settings,1);
+      const p2 = buildVipPlanForSettingsV62(settings,2);
+      const p3 = buildVipPlanForSettingsV62(settings,3);
+      return 'VIP1 ' + money(p1.recharge) + ' gana ' + money(p1.gain) + ' · VIP2 ' + money(p2.recharge) + ' gana ' + money(p2.gain) + ' · VIP3 ' + money(p3.recharge) + ' gana ' + money(p3.gain);
+    }
+    function vipPlanKindTextV65(settings){
+      settings = normalizeVipSettingsV62(settings || vipSettingsV62);
+      if(settings.mode === 'linear' && Number(settings.baseRecharge) === 10 && Number(settings.rechargeStep) === 10 && Number(settings.baseGain) === 5 && Number(settings.gainStep) === 5) return 'Plan bajo';
+      if(settings.mode === 'double' && Number(settings.baseRecharge) === 20 && Number(settings.baseGain) === 10) return 'Plan anterior';
+      return 'Plan personalizado';
+    }
+    function vipPlanModeTextV65(settings){
+      settings = normalizeVipSettingsV62(settings || vipSettingsV62);
+      return settings.mode === 'double' ? 'Doble' : 'Lineal';
+    }
+    function vipPlanSourceTextV65(){
+      return window.activeVipPlanSourceV65 === 'special' ? 'Precio especial' : 'Precio general';
+    }
+    function vipPlanTagTextV65(){
+      return window.activeVipPlanSourceV65 === 'special' ? 'ESPECIAL' : 'GENERAL';
+    }
+    function vipPlanCurrentLineV65(settings, cycle){
+      settings = normalizeVipSettingsV62(settings || vipSettingsV62);
+      cycle = Math.max(1, Math.floor(Number(cycle || getDemoCycle() || 1)));
+      const plan = buildVipPlanForSettingsV62(settings, cycle);
+      return 'VIP' + cycle + ' · recarga ' + money(plan.recharge) + ' · gana ' + money(plan.gain);
+    }
+    function adminCurrentPlanBoxV65(settings, label){
+      settings = normalizeVipSettingsV62(settings || getAdminVipSettingsV62());
+      const p = buildVipPlanForSettingsV62(settings, 1);
+      const p2 = buildVipPlanForSettingsV62(settings, 2);
+      return '<div class="admin-current-plan-v65"><div><span>' + (label || 'Plan activo actualmente') + '</span><strong>' + vipPlanKindTextV65(settings) + ' · ' + vipPlanModeTextV65(settings) + '</strong><small>VIP1: ' + money(p.recharge) + ' gana ' + money(p.gain) + ' · VIP2: ' + money(p2.recharge) + ' gana ' + money(p2.gain) + '</small></div><b>ACTUAL</b></div>';
+    }
+    function adminConfirmVipV64(title, message){
+      return new Promise(resolve=>{
+        const old=document.querySelector('.admin-confirm-backdrop-v64');
+        if(old) old.remove();
+        const wrap=document.createElement('div');
+        wrap.className='admin-confirm-backdrop-v64';
+        wrap.innerHTML=`<div class="admin-confirm-box-v64" role="dialog" aria-modal="true"><div class="admin-confirm-head-v64"><div class="admin-confirm-icon-v64">!</div><div><strong>${title}</strong><span>${message}</span></div></div><div class="admin-confirm-actions-v64"><button type="button" data-no>Cancelar</button><button class="ok" type="button" data-ok>Confirmar</button></div></div>`;
+        const done=(v)=>{wrap.remove();resolve(v);};
+        wrap.querySelector('[data-no]').onclick=()=>done(false);
+        wrap.querySelector('[data-ok]').onclick=()=>done(true);
+        wrap.addEventListener('click',e=>{if(e.target===wrap)done(false);});
+        document.body.appendChild(wrap);
+      });
+    }
+    function renderAdminVipPlansV62(list){
+      const settings = getAdminVipSettingsV62();
+      const view = adminVipPlanViewV64 || 'general';
+      list.innerHTML = `
+        <div class="admin-plan-card-v62 v63 v64">
+          <div class="admin-plan-head-v62 v64">
+            <div><strong>Planes VIP</strong><span>Elige si cambias precios para todos o solo para un cliente.</span></div>
+            <div class="admin-plan-badge-v62 v63 v64">Control admin</div>
+          </div>
+          <div class="admin-plan-tabs-v64">
+            <button class="admin-plan-tab-v64 ${view==='general'?'active':''}" type="button" onclick="adminSetVipPlanViewV64('general')">General<br>todos</button>
+            <button class="admin-plan-tab-v64 ${view==='user'?'active':''}" type="button" onclick="adminSetVipPlanViewV64('user')">Especial<br>1 usuario</button>
+          </div>
+          ${view==='user' ? adminUserVipScreenHtmlV64(settings) : adminGeneralVipScreenHtmlV64(settings)}
+        </div>`;
+      if(view === 'user'){
+        setAdminUserVipFormV63(getAdminVipSettingsV62());
+        renderAdminUserSearchV64();
+      }
+    }
+    function adminGeneralVipScreenHtmlV64(settings){
+      return `
+        <section class="admin-plan-section-v63 general v64">
+          <div class="admin-plan-title-v63 v64">
+            <div class="admin-plan-icon-v63 v64">ALL</div>
+            <div><strong>Precio general</strong><span>Lo ven todos los usuarios que no tienen precio especial.</span></div>
+            <div class="admin-plan-badge-v62 v63 v64" id="adminVipModeBadgeV63">${settings.mode==='double'?'Doble':'Lineal'}</div>
+          </div>
+          ${adminCurrentPlanBoxV65(settings, 'General activo para todos')}
+          <div class="admin-plan-choice-row-v64">
+            <button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyGeneralPlanV64('linearLow')"><strong>Aplicar plan bajo</strong><span>S/10 gana S/5 · S/20 gana S/10</span></button>
+            <button class="admin-plan-choice-v64" type="button" onclick="adminApplyGeneralPlanV64('doubleOld')"><strong>Aplicar plan anterior</strong><span>S/20 gana S/10 · luego duplica</span></button>
+          </div>
+          <div class="admin-plan-grid-v62 v63 v64">
+            <div class="admin-plan-field-v62 v63 v64"><label>Forma de subir</label><select id="adminVipModeV62" onchange="renderAdminVipPreviewV62()"><option value="linear" ${settings.mode==='linear'?'selected':''}>Lineal: 10, 20, 30...</option><option value="double" ${settings.mode==='double'?'selected':''}>Doble: 20, 40, 80...</option></select></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Tareas por ronda</label><input id="adminVipTaskCountV62" type="number" inputmode="numeric" min="1" max="20" value="${Number(settings.taskCount||5)}" oninput="renderAdminVipPreviewV62()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminVipBaseRechargeV62" type="number" inputmode="decimal" min="1" step="1" value="${Number(settings.baseRecharge||10)}" oninput="renderAdminVipPreviewV62()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminVipBaseGainV62" type="number" inputmode="decimal" min="1" step="1" value="${Number(settings.baseGain||5)}" oninput="renderAdminVipPreviewV62()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Sube recarga</label><input id="adminVipRechargeStepV62" type="number" inputmode="decimal" min="0" step="1" value="${Number(settings.rechargeStep||10)}" oninput="renderAdminVipPreviewV62()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Sube ganancia</label><input id="adminVipGainStepV62" type="number" inputmode="decimal" min="0" step="1" value="${Number(settings.gainStep||5)}" oninput="renderAdminVipPreviewV62()"></div>
+          </div>
+          <div class="admin-plan-mini-note-v63 v64"><b>i</b><span>Antes de guardar se pedirá confirmación. Ejemplo: VIP1 recarga S/10 y gana S/5.</span></div>
+          <div class="admin-plan-preview-v62 v63 v64" id="adminVipPreviewV62">${vipPlanPreviewHtmlV63(settings)}</div>
+          <div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveVipSettingsV62()">Guardar general</button><button class="admin-btn" type="button" onclick="adminRefreshVipSettingsV62()">Actualizar</button></div>
+        </section>`;
+    }
+    function adminUserVipScreenHtmlV64(settings){
+      return `
+        <section class="admin-plan-section-v63 single v64">
+          <div class="admin-plan-title-v63 v64">
+            <div class="admin-plan-icon-v63 v64">1</div>
+            <div><strong>Precio especial</strong><span>Busca un cliente y guarda un precio solo para esa cuenta.</span></div>
+            <div class="admin-plan-badge-v62 v63 v64">Individual</div>
+          </div>
+          <div id="adminUserCurrentPlanBoxV65">${adminCurrentPlanBoxV65(settings, 'Cuando elijas usuario verás su plan actual')}</div>
+          <div class="admin-plan-user-search-v64">
+            <div class="admin-plan-field-v62 v63 v64"><label>Buscar usuario</label><input id="adminVipUserSearchV64" placeholder="Correo, nombre o UID" oninput="renderAdminUserSearchV64()"></div>
+            <input id="adminVipUserTargetV63" type="hidden" value="">
+            <div id="adminVipUserFoundV63" class="admin-plan-user-label-v63 v64 hidden">Usuario seleccionado</div>
+            <div class="admin-plan-user-results-v64" id="adminVipUserResultsV64"></div>
+          </div>
+          <div class="admin-plan-choice-row-v64">
+            <button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyUserPlanV64('linearLow')"><strong>Guardar especial bajo</strong><span>S/10 gana S/5 para el usuario elegido</span></button>
+            <button class="admin-plan-choice-v64" type="button" onclick="adminApplyUserPlanV64('fromGeneral')"><strong>Copiar general</strong><span>Usa el precio actual general para ese usuario</span></button>
+          </div>
+          <div class="admin-plan-grid-v62 v63 v64">
+            <div class="admin-plan-field-v62 v63 v64"><label>Forma de subir</label><select id="adminUserVipModeV63" onchange="renderAdminUserVipPreviewV63()"><option value="linear">Lineal: 10, 20, 30...</option><option value="double">Doble: 20, 40, 80...</option></select></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Tareas</label><input id="adminUserVipTaskCountV63" type="number" inputmode="numeric" min="1" max="20" value="5" oninput="renderAdminUserVipPreviewV63()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminUserVipBaseRechargeV63" type="number" inputmode="decimal" min="1" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminUserVipBaseGainV63" type="number" inputmode="decimal" min="1" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Sube recarga</label><input id="adminUserVipRechargeStepV63" type="number" inputmode="decimal" min="0" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>
+            <div class="admin-plan-field-v62 v63 v64"><label>Sube ganancia</label><input id="adminUserVipGainStepV63" type="number" inputmode="decimal" min="0" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>
+          </div>
+          <div class="admin-plan-mini-note-v63 v64"><b>i</b><span>Selecciona un usuario. Al guardar, se pedirá confirmación y solo esa cuenta verá el precio especial.</span></div>
+          <div class="admin-plan-preview-v62 v63 v64" id="adminUserVipPreviewV63">${vipPlanPreviewHtmlV63(settings)}</div>
+          <div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveUserVipSettingsV63()">Guardar especial</button><button class="admin-btn danger" type="button" onclick="adminClearUserVipSettingsV63()">Quitar especial</button></div>
+        </section>`;
+    }
+    function readAdminVipFormV62(){return normalizeVipSettingsV62({mode:String(document.getElementById('adminVipModeV62')?.value||'linear'),baseRecharge:Number(String(document.getElementById('adminVipBaseRechargeV62')?.value||'10').replace(',','.')),rechargeStep:Number(String(document.getElementById('adminVipRechargeStepV62')?.value||'10').replace(',','.')),baseGain:Number(String(document.getElementById('adminVipBaseGainV62')?.value||'5').replace(',','.')),gainStep:Number(String(document.getElementById('adminVipGainStepV62')?.value||'5').replace(',','.')),taskCount:Number(document.getElementById('adminVipTaskCountV62')?.value||5),active:true,plans:null});}
+    function renderAdminVipPreviewV62(){const wrap=document.getElementById('adminVipPreviewV62'); if(!wrap) return; const settings=readAdminVipFormV62(); const badge=document.getElementById('adminVipModeBadgeV63'); if(badge) badge.textContent=settings.mode==='double'?'Doble':'Lineal'; wrap.innerHTML=vipPlanPreviewHtmlV63(settings);}
+    function adminSetVipPlanViewV64(view){ adminVipPlanViewV64 = view === 'user' ? 'user' : 'general'; renderAdminPanel(); }
+    function adminVipPresetV62(kind){const s=adminPresetSettingsV64(kind); const set=(id,v)=>{const el=document.getElementById(id); if(el) el.value=v;}; set('adminVipModeV62',s.mode); set('adminVipTaskCountV62',s.taskCount); set('adminVipBaseRechargeV62',s.baseRecharge); set('adminVipBaseGainV62',s.baseGain); set('adminVipRechargeStepV62',s.rechargeStep); set('adminVipGainStepV62',s.gainStep); renderAdminVipPreviewV62();}
+    async function adminApplyGeneralPlanV64(kind){
+      const s = adminPresetSettingsV64(kind);
+      const ok = await adminConfirmVipV64('Confirmar cambio general', adminPlanSummaryV64(s) + '\n\nSe aplicará a todos los usuarios sin precio especial.');
+      if(!ok) return;
+      adminVipPresetV62(kind);
+      await adminSaveVipSettingsV62(true);
+    }
+    async function adminSaveVipSettingsV62(skipConfirm=false){
+      const settings = readAdminVipFormV62();
+      if(!skipConfirm){
+        const ok = await adminConfirmVipV64('Guardar precio general', adminPlanSummaryV64(settings) + '\n\nSe actualizará para todos los usuarios sin precio especial.');
+        if(!ok) return;
+      }
+      const bridge = getAdminBridge();
+      try{
+        if(bridge && bridge.adminSaveVipSettings) await bridge.adminSaveVipSettings(settings);
+        applyVipSettingsV62(settings,false);
+        adminCache.vipSettings = settings;
+        showToast('Precio general guardado');
+        renderAdminPanel();
+      }catch(error){
+        showToast('No se pudo guardar el precio general');
+      }
+    }
+    async function adminRefreshVipSettingsV62(){const bridge=getAdminBridge(); try{if(bridge&&bridge.loadVipSettings){const settings=await bridge.loadVipSettings(); adminCache.vipSettings=settings; applyVipSettingsV62(settings,true);} renderAdminPanel();}catch(error){showToast('No se pudo actualizar planes');}}
+
+    function resolveAdminVipTargetV63(raw){
+      const q=String(raw||document.getElementById('adminVipUserTargetV63')?.value||'').trim().toLowerCase();
+      if(!q) return null;
+      return (adminCache.users||[]).find(u=>String(u.uid||u.id||'').toLowerCase()===q || String(u.email||'').toLowerCase()===q || String(u.uid||u.id||'').toLowerCase().startsWith(q)) || null;
+    }
+    function setAdminUserVipFormV63(settings){
+      settings=normalizeVipSettingsV62(settings||getAdminVipSettingsV62());
+      const set=(id,v)=>{const el=document.getElementById(id); if(el) el.value=v;};
+      set('adminUserVipModeV63', settings.mode||'linear');
+      set('adminUserVipTaskCountV63', Number(settings.taskCount||5));
+      set('adminUserVipBaseRechargeV63', Number(settings.baseRecharge||10));
+      set('adminUserVipBaseGainV63', Number(settings.baseGain||5));
+      set('adminUserVipRechargeStepV63', Number(settings.rechargeStep||10));
+      set('adminUserVipGainStepV63', Number(settings.gainStep||5));
+      renderAdminUserVipPreviewV63();
+    }
+    function readAdminUserVipFormV63(){return normalizeVipSettingsV62({mode:String(document.getElementById('adminUserVipModeV63')?.value||'linear'),baseRecharge:Number(String(document.getElementById('adminUserVipBaseRechargeV63')?.value||'10').replace(',','.')),rechargeStep:Number(String(document.getElementById('adminUserVipRechargeStepV63')?.value||'10').replace(',','.')),baseGain:Number(String(document.getElementById('adminUserVipBaseGainV63')?.value||'5').replace(',','.')),gainStep:Number(String(document.getElementById('adminUserVipGainStepV63')?.value||'5').replace(',','.')),taskCount:Number(document.getElementById('adminUserVipTaskCountV63')?.value||5),active:true,plans:null});}
+    function renderAdminUserVipPreviewV63(){const wrap=document.getElementById('adminUserVipPreviewV63'); if(!wrap) return; wrap.innerHTML=vipPlanPreviewHtmlV63(readAdminUserVipFormV63());}
+    function renderAdminSelectedUserPlanBoxV65(){
+      const box=document.getElementById('adminUserCurrentPlanBoxV65'); if(!box) return;
+      const raw=(document.getElementById('adminVipUserTargetV63')?.value||'').trim();
+      const user=resolveAdminVipTargetV63(raw);
+      if(!user){ box.innerHTML=adminCurrentPlanBoxV65(getAdminVipSettingsV62(), 'Elige un usuario para ver su plan'); return; }
+      const special=user.vipSettingsOverride || user.customVipSettings || null;
+      const settings=special ? normalizeVipSettingsV62(special) : getAdminVipSettingsV62();
+      const label=(special && special.active !== false) ? 'Plan actual del usuario: Especial' : 'Plan actual del usuario: General';
+      box.innerHTML=adminCurrentPlanBoxV65(settings, label).replace('>ACTUAL<','>' + ((special && special.active !== false)?'ESPECIAL':'GENERAL') + '<');
+    }
+
+    function adminUserVipPresetV63(kind, silent=false){
+      if(kind==='fromGeneral') setAdminUserVipFormV63(readAdminVipFormV62 ? readAdminVipFormV62() : getAdminVipSettingsV62());
+      else setAdminUserVipFormV63(adminPresetSettingsV64('linearLow'));
+      if(!silent) showToast(kind==='fromGeneral'?'Precio general copiado':'Plan bajo cargado');
+    }
+    function adminUseTargetFromBoxV63(){ const mainUid=(document.getElementById('adminTargetUidInput')?.value||'').trim(); const search=(document.getElementById('adminSearchInput')?.value||'').trim(); const input=document.getElementById('adminVipUserTargetV63'); if(input) input.value=mainUid || search; adminLoadUserVipSettingsV63(true); }
+    function adminLoadUserVipSettingsV63(showMsg=true){
+      const input=document.getElementById('adminVipUserTargetV63');
+      const label=document.getElementById('adminVipUserFoundV63');
+      const user=resolveAdminVipTargetV63(input?.value||'');
+      if(label){ label.classList.toggle('hidden', !user); label.textContent = user ? ('Usuario seleccionado: ' + String(user.email || user.uid || user.id).slice(0,42)) : 'Usuario seleccionado'; }
+      if(user){
+        const special = user.vipSettingsOverride || user.customVipSettings || null;
+        setAdminUserVipFormV63(special && special.active !== false ? special : getAdminVipSettingsV62());
+      }
+      renderAdminSelectedUserPlanBoxV65();
+      if(showMsg) showToast(user ? 'Usuario seleccionado' : 'Busca y elige un usuario');
+    }
+    function renderAdminUserSearchV64(){
+      const wrap=document.getElementById('adminVipUserResultsV64'); if(!wrap) return;
+      const q=String(document.getElementById('adminVipUserSearchV64')?.value||'').trim().toLowerCase();
+      const users=(adminCache.users||[]).filter(u=>{const txt=[u.email,u.uid,u.id,u.displayName,u.name,u.phone].filter(Boolean).join(' ').toLowerCase(); return !q || txt.includes(q);}).slice(0,8);
+      if(!users.length){ wrap.innerHTML='<div class="admin-empty" style="padding:10px;font-size:11px">No encontré usuarios. Escribe correo o UID.</div>'; return; }
+      wrap.innerHTML=users.map(u=>{const uid=String(u.uid||u.id||''); const email=String(u.email||'sin correo'); const name=String(u.displayName||u.name||email); const special=(u.vipSettingsOverride||u.customVipSettings); return `<div class="admin-plan-user-row-v64"><div><strong>${name}</strong><span>${email}</span><span>UID: ${uid.slice(0,18)}${uid.length>18?'...':''} ${special?'· especial activo':''}</span></div><button class="admin-btn primary" type="button" onclick="adminSelectVipUserV64('${uid.replace(/'/g,"\'")}')">Elegir</button></div>`;}).join('');
+    }
+    function adminSelectVipUserV64(uid){
+      const input=document.getElementById('adminVipUserTargetV63'); if(input) input.value=uid;
+      const user=resolveAdminVipTargetV63(uid);
+      const search=document.getElementById('adminVipUserSearchV64'); if(search && user) search.value=String(user.email||user.displayName||uid);
+      adminLoadUserVipSettingsV63(true);
+      renderAdminUserSearchV64();
+    }
+    async function adminApplyUserPlanV64(kind){
+      const raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+      const user = resolveAdminVipTargetV63(raw);
+      if(!user){ showToast('Primero elige un usuario'); return; }
+      const s = kind === 'fromGeneral' ? (readAdminVipFormV62 ? readAdminVipFormV62() : getAdminVipSettingsV62()) : adminPresetSettingsV64('linearLow');
+      setAdminUserVipFormV63(s);
+      const ok = await adminConfirmVipV64('Confirmar precio especial', 'Usuario: ' + String(user.email || user.uid || user.id) + '\n' + adminPlanSummaryV64(s) + '\n\nSolo este usuario verá este precio.');
+      if(!ok) return;
+      await adminSaveUserVipSettingsV63(true);
+    }
+    async function adminSaveUserVipSettingsV63(skipConfirm=false){
+      const raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+      const user = resolveAdminVipTargetV63(raw);
+      const uid = user ? String(user.uid || user.id || '') : raw;
+      if(!uid){ showToast('Primero elige un usuario'); return; }
+      const settings = readAdminUserVipFormV63();
+      if(!skipConfirm){
+        const ok = await adminConfirmVipV64('Guardar precio especial', 'Usuario: ' + String((user && user.email) || uid) + '\n' + adminPlanSummaryV64(settings) + '\n\nSolo este usuario verá este precio.');
+        if(!ok) return;
+      }
+      const bridge = getAdminBridge();
+      try{
+        if(!bridge || !bridge.adminSaveUserVipSettings) throw new Error('Sin admin');
+        await bridge.adminSaveUserVipSettings(uid, settings);
+        showToast('Precio especial guardado');
+        await adminRefresh();
+      }catch(error){
+        showToast('No se pudo guardar para ese usuario');
+      }
+    }
+    async function adminClearUserVipSettingsV63(){
+      const raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+      const user = resolveAdminVipTargetV63(raw);
+      const uid = user ? String(user.uid || user.id || '') : raw;
+      if(!uid){ showToast('Primero elige un usuario'); return; }
+      const ok = await adminConfirmVipV64('Quitar precio especial', 'El usuario volverá al precio general.');
+      if(!ok) return;
+      const bridge = getAdminBridge();
+      try{
+        if(!bridge || !bridge.adminClearUserVipSettings) throw new Error('Sin admin');
+        await bridge.adminClearUserVipSettings(uid);
+        showToast('Precio especial quitado');
+        await adminRefresh();
+      }catch(error){
+        showToast('No se pudo quitar precio especial');
+      }
     }
 
     function renderAdminUsers(list){
@@ -12195,7 +13082,7 @@
         return `
           <article class="admin-user-card ${blocked ? 'blocked' : ''}">
             <div class="admin-user-top">
-              <div><strong>${name}</strong><span>${user.email || shortUid}</span><span>UID: ${shortUid}</span><small>Recargado: ${money(Number(user.totalRecharged || 0))} · Retirado: ${money(Number(user.totalWithdrawn || 0))}</small></div>
+              <div><strong>${name}</strong><span>${user.email || shortUid}</span><span>UID: ${shortUid}</span><small>Recargado: ${money(Number(user.totalRecharged || 0))} · Retirado: ${money(Number(user.totalWithdrawn || 0))}</small>${(user.vipSettingsOverride || user.customVipSettings) ? '<em class="admin-user-plan-tag-v63">Precio especial activo</em>' : ''}</div>
               <div class="admin-pill ${blocked ? 'blocked' : ''}">${blocked ? 'Bloqueado' : 'VIP' + cycle}</div>
             </div>
             <div class="admin-user-stats">
@@ -12204,9 +13091,9 @@
               <div class="admin-user-stat"><span>Retirable</span><strong>${money(withdrawable)}</strong></div>
             </div>
             <div class="admin-user-actions v47">
+              <button class="admin-btn" onclick="adminRechargeUser('${uid}',10)">+ S/10</button>
               <button class="admin-btn" onclick="adminRechargeUser('${uid}',20)">+ S/20</button>
-              <button class="admin-btn" onclick="adminRechargeUser('${uid}',40)">+ S/40</button>
-              <button class="admin-btn" onclick="adminRechargeUser('${uid}',80)">+ S/80</button>
+              <button class="admin-btn" onclick="adminRechargeUser('${uid}',30)">+ S/30</button>
               <button class="admin-btn primary" onclick="adminRechargeCustom('${uid}')">Agregar</button>
               <button class="admin-btn negative" onclick="adminRemoveCustom('${uid}')">Quitar</button>
               <button class="admin-btn" onclick="adminToggleBlockUser('${uid}', ${blocked ? 'false' : 'true'})">${blocked ? 'Activar' : 'Bloquear'}</button>
@@ -12261,6 +13148,22 @@
 
     window.adminRefresh = adminRefresh;
     window.renderAdminPanel = renderAdminPanel;
+    window.adminVipPresetV62 = adminVipPresetV62;
+    window.renderAdminVipPreviewV62 = renderAdminVipPreviewV62;
+    window.adminSaveVipSettingsV62 = adminSaveVipSettingsV62;
+    window.adminRefreshVipSettingsV62 = adminRefreshVipSettingsV62;
+    window.adminUserVipPresetV63 = adminUserVipPresetV63;
+    window.renderAdminUserVipPreviewV63 = renderAdminUserVipPreviewV63;
+    window.adminUseTargetFromBoxV63 = adminUseTargetFromBoxV63;
+    window.adminLoadUserVipSettingsV63 = adminLoadUserVipSettingsV63;
+    window.adminSaveUserVipSettingsV63 = adminSaveUserVipSettingsV63;
+    window.adminClearUserVipSettingsV63 = adminClearUserVipSettingsV63;
+    window.adminSetVipPlanViewV64 = adminSetVipPlanViewV64;
+    window.adminApplyGeneralPlanV64 = adminApplyGeneralPlanV64;
+    window.adminApplyUserPlanV64 = adminApplyUserPlanV64;
+    window.adminConfirmVipV64 = adminConfirmVipV64;
+    window.renderAdminUserSearchV64 = renderAdminUserSearchV64;
+    window.adminSelectVipUserV64 = adminSelectVipUserV64;
     function adminRechargeCustom(uid){
       const raw = prompt('Monto a recargar al usuario');
       const amount = Number(String(raw || '').replace(',', '.'));
@@ -12553,6 +13456,37 @@
     let pendingState = null;
     let userRealtimeUnsub = null;
     let applyingRemoteUserState = false;
+    let vipSettingsRealtimeUnsub = null;
+    let vipPlansRealtimeUnsub = null;
+    function normalizeBridgeVipSettingsV62(data){return window.normalizeVipSettingsV62 ? window.normalizeVipSettingsV62(data) : (data || {});}
+    let activeUserVipOverrideV63 = null;
+    function applyBridgeVipSettingsV62(settings){ if(window.applyVipSettingsV62) window.applyVipSettingsV62(activeUserVipOverrideV63 || settings,true); }
+    function collectVipPlansFromSnapshotV62(snap){const plans={}; snap.forEach(d=>{const data=d.data()||{}; const level=Math.max(1,Math.floor(Number(data.level||String(d.id).replace(/[^0-9]/g,'')||1))); plans[level]={level,name:data.name||('VIP'+level),recharge:Number(data.rechargeRequired??data.recharge??0)||0,gain:Number(data.rewardTotal??data.gain??0)||0,taskCount:Number(data.taskCount||5)||5,active:data.active!==false};}); return plans;}
+    function startVipSettingsRealtime(){ if(!enabled||!db)return; if(!vipSettingsRealtimeUnsub){vipSettingsRealtimeUnsub=onSnapshot(doc(db,'appConfig','vipSettings'),snap=>{if(snap.exists())applyBridgeVipSettingsV62(snap.data());},error=>console.warn('No se pudo escuchar appConfig/vipSettings',error));} if(!vipPlansRealtimeUnsub){vipPlansRealtimeUnsub=onSnapshot(collection(db,'vipPlans'),snap=>{const current=window.getVipSettingsV62?window.getVipSettingsV62():{}; const plans=collectVipPlansFromSnapshotV62(snap); if(Object.keys(plans).length)applyBridgeVipSettingsV62({...current,plans});},error=>console.warn('No se pudo escuchar vipPlans',error));} }
+    async function loadVipSettings(){ if(!enabled||!db) return window.getVipSettingsV62?window.getVipSettingsV62():{}; let settings=window.getVipSettingsV62?window.getVipSettingsV62():{}; try{const snap=await getDoc(doc(db,'appConfig','vipSettings')); if(snap.exists()) settings={...settings,...snap.data()};}catch(error){console.warn('No se pudo leer appConfig/vipSettings',error);} try{const plansSnap=await getDocs(collection(db,'vipPlans')); const plans=collectVipPlansFromSnapshotV62(plansSnap); if(Object.keys(plans).length) settings={...settings,plans};}catch(error){console.warn('No se pudo leer vipPlans',error);} settings=normalizeBridgeVipSettingsV62(settings); applyBridgeVipSettingsV62(settings); return settings;}
+    async function adminSaveVipSettings(settings){ if(!enabled||!isAdmin()) throw new Error('No admin'); const clean=normalizeBridgeVipSettingsV62(settings); const basePayload={mode:clean.mode||'linear',baseRecharge:Number(clean.baseRecharge||10),rechargeStep:Number(clean.rechargeStep||10),baseGain:Number(clean.baseGain||5),gainStep:Number(clean.gainStep||5),taskCount:Number(clean.taskCount||5),active:clean.active!==false,updatedBy:currentUser.uid,updatedByEmail:currentUser.email||'',updatedAt:serverTimestamp()}; await setDoc(doc(db,'appConfig','vipSettings'),basePayload,{merge:true}); const docs=[]; for(let i=1;i<=20;i++){const plan=window.buildVipPlanForSettingsV62?window.buildVipPlanForSettingsV62(clean,i):{recharge:i*10,gain:i*5,taskCount:5}; docs.push(setDoc(doc(db,'vipPlans','vip'+i),{level:i,name:'VIP'+i,rechargeRequired:Number(plan.recharge||0),rewardTotal:Number(plan.gain||0),taskCount:Number(plan.taskCount||clean.taskCount||5),rewardPerTask:Number((Number(plan.gain||0)/Math.max(1,Number(plan.taskCount||clean.taskCount||5))).toFixed(2)),active:true,updatedAt:serverTimestamp(),updatedBy:currentUser.uid},{merge:true}));} await Promise.all(docs); await addDoc(collection(db,'adminLogs'),{adminId:currentUser.uid,adminEmail:currentUser.email||'',action:'update_vip_plans',targetUser:'all',amount:0,note:'Planes VIP actualizados desde panel admin',createdAt:serverTimestamp()}); applyBridgeVipSettingsV62(clean); return clean;}
+
+    async function adminSaveUserVipSettings(uid, settings){
+      if(!enabled||!isAdmin()) throw new Error('No admin');
+      const clean=normalizeBridgeVipSettingsV62({...settings,active:true});
+      const target=String(uid||'').trim();
+      if(!target) throw new Error('UID invalido');
+      const payload={
+        vipSettingsOverride:{mode:clean.mode||'linear',baseRecharge:Number(clean.baseRecharge||10),rechargeStep:Number(clean.rechargeStep||10),baseGain:Number(clean.baseGain||5),gainStep:Number(clean.gainStep||5),taskCount:Number(clean.taskCount||5),active:true,updatedBy:currentUser.uid,updatedByEmail:currentUser.email||'',updatedAt:serverTimestamp()},
+        vipSettingsMode:'custom',
+        updatedAt:serverTimestamp()
+      };
+      await setDoc(doc(db,'users',target),payload,{merge:true});
+      await addDoc(collection(db,'adminLogs'),{adminId:currentUser.uid,adminEmail:currentUser.email||'',action:'update_user_vip_plan',targetUser:target,amount:Number(clean.baseRecharge||0),note:'Precio VIP especial guardado para un usuario',createdAt:serverTimestamp()});
+      return clean;
+    }
+    async function adminClearUserVipSettings(uid){
+      if(!enabled||!isAdmin()) throw new Error('No admin');
+      const target=String(uid||'').trim();
+      if(!target) throw new Error('UID invalido');
+      await setDoc(doc(db,'users',target),{vipSettingsOverride:null,customVipSettings:null,vipSettingsMode:'general',updatedAt:serverTimestamp()},{merge:true});
+      await addDoc(collection(db,'adminLogs'),{adminId:currentUser.uid,adminEmail:currentUser.email||'',action:'clear_user_vip_plan',targetUser:target,amount:0,note:'Precio VIP especial quitado. Usuario vuelve al precio general',createdAt:serverTimestamp()});
+    }
 
     function plainState(state){
       const cycle = Number(state?.cycle || 1);
@@ -12735,6 +13669,8 @@
         try{ userRealtimeUnsub(); }catch(error){}
         userRealtimeUnsub = null;
       }
+      activeUserVipOverrideV63 = null;
+      window.activeVipPlanSourceV65 = 'general';
     }
 
     function applyRemoteUserData(data){
@@ -12753,6 +13689,11 @@
         bestCycle:Number(data.bestCycle || data.cycle || data.vipLevel || before.bestCycle || 1),
         bestCompleted:Number(data.bestCompleted || data.completed || before.bestCompleted || 0)
       };
+      const vipOverride = data.vipSettingsOverride || data.customVipSettings || null;
+      activeUserVipOverrideV63 = (vipOverride && vipOverride.active !== false) ? normalizeBridgeVipSettingsV62(vipOverride) : null;
+      window.activeVipPlanSourceV65 = activeUserVipOverrideV63 ? 'special' : 'general';
+      if (activeUserVipOverrideV63) applyBridgeVipSettingsV62(activeUserVipOverrideV63);
+      else loadVipSettings().catch(() => { window.activeVipPlanSourceV65 = 'general'; });
       applyingRemoteUserState = true;
       try{
         window.demoState = normalizeDemoState(next);
@@ -12967,7 +13908,7 @@
         currentClaims = {};
         adminReady = false;
         if (typeof stopAdminRealtime === 'function') stopAdminRealtime();
-        window.adminCache = {users:[], recharges:[], withdrawals:[], transfers:[], orders:[]};
+        window.adminCache = {users:[], recharges:[], withdrawals:[], transfers:[], orders:[], vipSettings:null};
         updateUserAuthUI();
         window.renderLoginWarningsV47?.();
         window.updateAdminVisibility?.();
@@ -13023,7 +13964,8 @@
         bind('recharges', query(collection(db, 'rechargeRequests'), orderBy('createdAt', 'desc'), limit(80))),
         bind('withdrawals', query(collection(db, 'withdrawalRequests'), orderBy('createdAt', 'desc'), limit(80))),
         bind('transfers', query(collection(db, 'transactions'), orderBy('createdAt', 'desc'), limit(120))),
-        bind('orders', query(collection(db, 'missionOrders'), orderBy('createdAt', 'desc'), limit(120)))
+        bind('orders', query(collection(db, 'missionOrders'), orderBy('createdAt', 'desc'), limit(120))),
+        onSnapshot(doc(db, 'appConfig', 'vipSettings'), snap => { if(snap.exists()){ adminRealtimeCache.vipSettings = snap.data(); applyBridgeVipSettingsV62(snap.data()); callback && callback({...adminRealtimeCache}); } }, error => console.warn('Realtime admin vipSettings error', error))
       ];
       return stopAdminRealtime;
     }
@@ -13031,14 +13973,15 @@
     async function loadAdminData(){
       if (!enabled) return {users:[], recharges:[], withdrawals:[], transfers:[]};
       if (!isAdmin()) throw new Error('No admin');
-      const [users, recharges, withdrawals, transfers, orders] = await Promise.all([
+      const [users, recharges, withdrawals, transfers, orders, vipSettings] = await Promise.all([
         docsToArray(query(collection(db, 'users'), orderBy('updatedAt', 'desc'), limit(40))).catch(() => []),
         docsToArray(query(collection(db, 'rechargeRequests'), orderBy('createdAt', 'desc'), limit(40))).catch(() => []),
         docsToArray(query(collection(db, 'withdrawalRequests'), orderBy('createdAt', 'desc'), limit(40))).catch(() => []),
         docsToArray(query(collection(db, 'transactions'), orderBy('createdAt', 'desc'), limit(60))).catch(() => []),
-        docsToArray(query(collection(db, 'missionOrders'), orderBy('createdAt', 'desc'), limit(60))).catch(() => [])
+        docsToArray(query(collection(db, 'missionOrders'), orderBy('createdAt', 'desc'), limit(60))).catch(() => []),
+        loadVipSettings().catch(() => (window.getVipSettingsV62 ? window.getVipSettingsV62() : null))
       ]);
-      return {users, recharges, withdrawals, transfers, orders};
+      return {users, recharges, withdrawals, transfers, orders, vipSettings};
     }
 
     async function adminRecharge(uid, amount){
@@ -13177,6 +14120,10 @@
       recordWithdrawal,
       recordMissionOrder,
       loadAdminData,
+      loadVipSettings,
+      adminSaveVipSettings,
+      adminSaveUserVipSettings,
+      adminClearUserVipSettings,
       startAdminRealtime,
       stopAdminRealtime,
       adminRecharge,
@@ -13201,6 +14148,8 @@
       app = initializeApp(cfg);
       auth = getAuth(app);
       db = getFirestore(app);
+      startVipSettingsRealtime();
+      loadVipSettings().catch(() => {});
       onAuthStateChanged(auth, async user => {
         try{
           if (!user){
@@ -13393,5 +14342,397 @@
 })();
 </script>
 
+
+<script>
+/* v66: planes VIP entendibles, plan normal/especial y usuarios especiales */
+(function(){
+  function safeMoneyV66(n){ try { return money(Number(n || 0)); } catch(e){ return 'S/ ' + Number(n || 0).toFixed(2); } }
+  function planSettingsV66(settings){
+    try { return normalizeVipSettingsV62(settings || vipSettingsV62); }
+    catch(e){ return settings || {mode:'linear',baseRecharge:10,rechargeStep:10,baseGain:5,gainStep:5,taskCount:5}; }
+  }
+  function planAtV66(settings, level){
+    settings = planSettingsV66(settings);
+    try { return buildVipPlanForSettingsV62(settings, level || 1); }
+    catch(e){
+      var lvl = Math.max(1, Number(level || 1));
+      if(settings.mode === 'double') return {recharge:Number(settings.baseRecharge||20) * Math.pow(2,lvl-1), gain:Number(settings.baseGain||10) * Math.pow(2,lvl-1), taskCount:Number(settings.taskCount||5)};
+      return {recharge:Number(settings.baseRecharge||10) + (lvl-1)*Number(settings.rechargeStep||10), gain:Number(settings.baseGain||5) + (lvl-1)*Number(settings.gainStep||5), taskCount:Number(settings.taskCount||5)};
+    }
+  }
+  function planShortV66(settings){
+    var p1 = planAtV66(settings,1), p2 = planAtV66(settings,2), p3 = planAtV66(settings,3);
+    return 'VIP1 ' + safeMoneyV66(p1.recharge) + ' gana ' + safeMoneyV66(p1.gain) + ' · VIP2 ' + safeMoneyV66(p2.recharge) + ' gana ' + safeMoneyV66(p2.gain) + ' · VIP3 ' + safeMoneyV66(p3.recharge) + ' gana ' + safeMoneyV66(p3.gain);
+  }
+  window.vipPlanKindTextV65 = function(settings){
+    settings = planSettingsV66(settings || vipSettingsV62);
+    if(settings.mode === 'linear' && Number(settings.baseRecharge) === 10 && Number(settings.rechargeStep) === 10 && Number(settings.baseGain) === 5 && Number(settings.gainStep) === 5) return 'Plan bajo S/10 gana S/5';
+    if(settings.mode === 'double' && Number(settings.baseRecharge) === 20 && Number(settings.baseGain) === 10) return 'Plan anterior S/20 gana S/10';
+    return 'Plan personalizado';
+  };
+  window.vipPlanModeTextV65 = function(settings){
+    settings = planSettingsV66(settings || vipSettingsV62);
+    return settings.mode === 'double' ? 'Doble' : 'Lineal';
+  };
+  window.vipPlanSourceTextV65 = function(){ return window.activeVipPlanSourceV65 === 'special' ? 'Plan especial' : 'Plan normal'; };
+  window.vipPlanTagTextV65 = function(){ return window.activeVipPlanSourceV65 === 'special' ? 'ESPECIAL' : 'NORMAL'; };
+  window.adminCurrentPlanBoxV65 = function(settings, label, kind){
+    settings = planSettingsV66(settings || getAdminVipSettingsV62());
+    var p1 = planAtV66(settings,1), p2 = planAtV66(settings,2);
+    var isSpecial = String(kind || label || '').toLowerCase().indexOf('especial') >= 0;
+    var title = label || (isSpecial ? 'Plan especial activo' : 'Plan normal activo');
+    var tag = isSpecial ? 'ESPECIAL' : 'NORMAL';
+    return '<div class="admin-current-plan-v65 v66 ' + (isSpecial?'special':'normal') + '"><div><span>' + title + '</span><strong>' + window.vipPlanKindTextV65(settings) + '</strong><small>VIP1: ' + safeMoneyV66(p1.recharge) + ' gana ' + safeMoneyV66(p1.gain) + ' · VIP2: ' + safeMoneyV66(p2.recharge) + ' gana ' + safeMoneyV66(p2.gain) + '</small></div><b>' + tag + '</b></div>';
+  };
+  function adminPlanStatusV66(settings, type, user){
+    settings = planSettingsV66(settings || getAdminVipSettingsV62());
+    var special = type === 'special';
+    var title = special ? 'Plan especial activo' : 'Plan normal activo';
+    var who = special && user ? String(user.email || user.displayName || user.uid || user.id || 'usuario') : 'Usuarios sin plan especial';
+    var btn = special ? '<button class="mini-danger" type="button" onclick="adminClearUserVipSettingsV63()">Desactivar especial</button>' : '<em>Activo</em>';
+    return '<div class="admin-plan-status-v66 ' + (special?'special':'normal') + '"><div><span>' + title + '</span><strong>' + window.vipPlanKindTextV65(settings) + '</strong><small>' + who + ' · ' + planShortV66(settings) + '</small></div>' + btn + '</div>';
+  }
+  function getSpecialUsersV66(){
+    try{
+      return (adminCache.users || []).filter(function(u){ var s = u.vipSettingsOverride || u.customVipSettings; return s && s.active !== false; });
+    }catch(e){ return []; }
+  }
+  function adminSpecialUsersHtmlV66(){
+    var users = getSpecialUsersV66();
+    if(!users.length){
+      return '<div class="admin-special-list-v66"><h4>Usuarios con plan especial <span>0 activos</span></h4><div class="admin-special-empty-v66">Aun no hay usuarios con plan especial. Busca un usuario, elige el precio y guarda.</div></div>';
+    }
+    return '<div class="admin-special-list-v66"><h4>Usuarios con plan especial <span>' + users.length + ' activos</span></h4>' + users.map(function(u){
+      var uid = String(u.uid || u.id || '');
+      var name = String(u.displayName || u.name || u.email || 'Usuario');
+      var email = String(u.email || 'sin correo');
+      var settings = planSettingsV66(u.vipSettingsOverride || u.customVipSettings);
+      return '<div class="admin-special-user-row-v66"><div><strong>' + name + '</strong><span>' + email + '</span><small>' + window.vipPlanKindTextV65(settings) + '</small></div><div class="actions"><button class="admin-btn primary" type="button" onclick="adminSelectVipUserV64(\'' + uid.replace(/'/g,"\\'") + '\')">Elegir</button><button class="admin-btn negative" type="button" onclick="adminClearUserVipSettingsForUidV66(\'' + uid.replace(/'/g,"\\'") + '\')">Desactivar</button></div></div>';
+    }).join('') + '</div>';
+  }
+  window.adminClearUserVipSettingsForUidV66 = function(uid){
+    var input = document.getElementById('adminVipUserTargetV63');
+    if(input) input.value = uid;
+    var user = resolveAdminVipTargetV63(uid);
+    var search = document.getElementById('adminVipUserSearchV64');
+    if(search && user) search.value = String(user.email || user.displayName || uid);
+    adminClearUserVipSettingsV63();
+  };
+  window.renderAdminVipPlansV62 = function(list){
+    var settings = getAdminVipSettingsV62();
+    var view = adminVipPlanViewV64 || 'general';
+    list.innerHTML = '<div class="admin-plan-card-v62 v63 v64">' +
+      '<div class="admin-plan-head-v62 v64"><div><strong>Planes VIP</strong><span>Configura el plan normal para todos o un plan especial para un usuario.</span></div><div class="admin-plan-badge-v62 v63 v64">Admin</div></div>' +
+      '<div class="admin-plan-tabs-v64">' +
+      '<button class="admin-plan-tab-v64 ' + (view==='general'?'active':'') + '" type="button" onclick="adminSetVipPlanViewV64(\'general\')"><strong>Plan normal</strong><span>Todos</span></button>' +
+      '<button class="admin-plan-tab-v64 ' + (view==='user'?'active':'') + '" type="button" onclick="adminSetVipPlanViewV64(\'user\')"><strong>Plan especial</strong><span>1 usuario</span></button>' +
+      '</div>' + (view==='user' ? adminUserVipScreenHtmlV64(settings) : adminGeneralVipScreenHtmlV64(settings)) + '</div>';
+    if(view === 'user'){
+      setAdminUserVipFormV63(getAdminVipSettingsV62());
+      renderAdminUserSearchV64();
+      renderAdminSelectedUserPlanBoxV65();
+    }
+  };
+  window.adminGeneralVipScreenHtmlV64 = function(settings){
+    settings = planSettingsV66(settings);
+    return '<section class="admin-plan-section-v63 general v64">' +
+      '<div class="admin-plan-title-v63 v64"><div class="admin-plan-icon-v63 v64">ALL</div><div><strong>Plan normal para todos</strong><span>Lo usan todos los usuarios que no tienen plan especial.</span></div><div class="admin-plan-badge-v62 v63 v64" id="adminVipModeBadgeV63">' + window.vipPlanModeTextV65(settings) + '</div></div>' +
+      adminPlanStatusV66(settings, 'normal') +
+      '<div class="admin-plan-choice-row-v64"><button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyGeneralPlanV64(\'linearLow\')"><strong>Cambiar a plan bajo</strong><span>VIP1 S/10 gana S/5</span></button><button class="admin-plan-choice-v64" type="button" onclick="adminApplyGeneralPlanV64(\'doubleOld\')"><strong>Cambiar a plan anterior</strong><span>VIP1 S/20 gana S/10</span></button></div>' +
+      '<div class="admin-plan-grid-v62 v63 v64">' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Forma de subir</label><select id="adminVipModeV62" onchange="renderAdminVipPreviewV62()"><option value="linear" ' + (settings.mode==='linear'?'selected':'') + '>Lineal: 10, 20, 30...</option><option value="double" ' + (settings.mode==='double'?'selected':'') + '>Doble: 20, 40, 80...</option></select></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Tareas por ronda</label><input id="adminVipTaskCountV62" type="number" inputmode="numeric" min="1" max="20" value="' + Number(settings.taskCount||5) + '" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminVipBaseRechargeV62" type="number" inputmode="decimal" min="1" step="1" value="' + Number(settings.baseRecharge||10) + '" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminVipBaseGainV62" type="number" inputmode="decimal" min="1" step="1" value="' + Number(settings.baseGain||5) + '" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Aumenta recarga</label><input id="adminVipRechargeStepV62" type="number" inputmode="decimal" min="0" step="1" value="' + Number(settings.rechargeStep||10) + '" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Aumenta ganancia</label><input id="adminVipGainStepV62" type="number" inputmode="decimal" min="0" step="1" value="' + Number(settings.gainStep||5) + '" oninput="renderAdminVipPreviewV62()"></div>' +
+      '</div><div class="admin-plan-mini-note-v63 v64"><b>i</b><span>Al guardar, se pedira confirmacion. Este plan normal aparece para todos los usuarios sin plan especial.</span></div>' +
+      '<div class="admin-plan-preview-v62 v63 v64" id="adminVipPreviewV62">' + vipPlanPreviewHtmlV63(settings) + '</div>' +
+      '<div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveVipSettingsV62()">Guardar plan normal</button><button class="admin-btn" type="button" onclick="adminRefreshVipSettingsV62()">Actualizar</button></div>' +
+      adminSpecialUsersHtmlV66() + '</section>';
+  };
+  window.adminUserVipScreenHtmlV64 = function(settings){
+    settings = planSettingsV66(settings);
+    return '<section class="admin-plan-section-v63 single v64">' +
+      '<div class="admin-plan-title-v63 v64"><div class="admin-plan-icon-v63 v64">1</div><div><strong>Plan especial para 1 usuario</strong><span>Busca el cliente, elige el precio y guardalo solo para esa cuenta.</span></div><div class="admin-plan-badge-v62 v63 v64">Individual</div></div>' +
+      '<div id="adminUserCurrentPlanBoxV65">' + adminCurrentPlanBoxV65(settings, 'Elige un usuario para ver si tiene plan normal o especial') + '</div>' +
+      '<div class="admin-plan-user-search-v64"><div class="admin-plan-field-v62 v63 v64"><label>Buscar usuario</label><input id="adminVipUserSearchV64" placeholder="Correo, nombre o UID" oninput="renderAdminUserSearchV64()"></div><input id="adminVipUserTargetV63" type="hidden" value=""><div id="adminVipUserFoundV63" class="admin-plan-user-label-v63 v64 hidden">Usuario seleccionado</div><div class="admin-plan-user-results-v64" id="adminVipUserResultsV64"></div></div>' +
+      '<div class="admin-plan-choice-row-v64"><button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyUserPlanV64(\'linearLow\')"><strong>Activar plan bajo</strong><span>Solo para el usuario elegido</span></button><button class="admin-plan-choice-v64" type="button" onclick="adminApplyUserPlanV64(\'fromGeneral\')"><strong>Copiar plan normal</strong><span>Usa el normal como especial</span></button></div>' +
+      '<div class="admin-plan-grid-v62 v63 v64">' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Forma de subir</label><select id="adminUserVipModeV63" onchange="renderAdminUserVipPreviewV63()"><option value="linear">Lineal: 10, 20, 30...</option><option value="double">Doble: 20, 40, 80...</option></select></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Tareas</label><input id="adminUserVipTaskCountV63" type="number" inputmode="numeric" min="1" max="20" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminUserVipBaseRechargeV63" type="number" inputmode="decimal" min="1" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminUserVipBaseGainV63" type="number" inputmode="decimal" min="1" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Aumenta recarga</label><input id="adminUserVipRechargeStepV63" type="number" inputmode="decimal" min="0" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Aumenta ganancia</label><input id="adminUserVipGainStepV63" type="number" inputmode="decimal" min="0" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '</div><div class="admin-plan-mini-note-v63 v64"><b>i</b><span>Si activas un plan especial, el usuario aparecera abajo en la lista de usuarios especiales. Puedes desactivarlo cuando quieras.</span></div>' +
+      '<div class="admin-plan-preview-v62 v63 v64" id="adminUserVipPreviewV63">' + vipPlanPreviewHtmlV63(settings) + '</div>' +
+      '<div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveUserVipSettingsV63()">Guardar plan especial</button><button class="admin-btn danger" type="button" onclick="adminClearUserVipSettingsV63()">Desactivar especial</button></div>' +
+      adminSpecialUsersHtmlV66() + '</section>';
+  };
+  window.renderAdminSelectedUserPlanBoxV65 = function(){
+    var box = document.getElementById('adminUserCurrentPlanBoxV65'); if(!box) return;
+    var raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+    var user = resolveAdminVipTargetV63(raw);
+    if(!user){ box.innerHTML = adminCurrentPlanBoxV65(getAdminVipSettingsV62(), 'Elige un usuario para ver su plan'); return; }
+    var special = user.vipSettingsOverride || user.customVipSettings || null;
+    var isSpecial = special && special.active !== false;
+    var settings = isSpecial ? planSettingsV66(special) : getAdminVipSettingsV62();
+    box.innerHTML = adminPlanStatusV66(settings, isSpecial ? 'special' : 'normal', user);
+  };
+  window.renderAdminUserSearchV64 = function(){
+    var wrap = document.getElementById('adminVipUserResultsV64'); if(!wrap) return;
+    var q = String(document.getElementById('adminVipUserSearchV64')?.value || '').trim().toLowerCase();
+    var users = (adminCache.users || []).filter(function(u){ var txt=[u.email,u.uid,u.id,u.displayName,u.name,u.phone].filter(Boolean).join(' ').toLowerCase(); return !q || txt.includes(q); }).slice(0,7);
+    if(!users.length){ wrap.innerHTML='<div class="admin-empty" style="padding:8px;font-size:10px">No encontre usuarios. Escribe correo, nombre o UID.</div>'; return; }
+    wrap.innerHTML = users.map(function(u){
+      var uid=String(u.uid||u.id||''); var email=String(u.email||'sin correo'); var name=String(u.displayName||u.name||email); var special=(u.vipSettingsOverride||u.customVipSettings); var s=special ? planSettingsV66(special) : null;
+      return '<div class="admin-plan-user-row-v64"><div><strong>' + name + '</strong><span>' + email + '</span><span>UID: ' + uid.slice(0,18) + (uid.length>18?'...':'') + '</span>' + (s?'<small class="admin-user-plan-tag-v63">PLAN ESPECIAL · ' + window.vipPlanKindTextV65(s) + '</small>':'<small class="admin-user-plan-tag-v63" style="color:#0dbf66;background:rgba(16,210,111,.08);border-color:rgba(16,210,111,.14)">PLAN NORMAL</small>') + '</div><button class="admin-btn primary" type="button" onclick="adminSelectVipUserV64(\'' + uid.replace(/'/g,"\\'") + '\')">Elegir</button></div>';
+    }).join('');
+  };
+  var oldAdminApplyGeneral = window.adminApplyGeneralPlanV64;
+  window.adminApplyGeneralPlanV64 = async function(kind){
+    var s = adminPresetSettingsV64(kind);
+    var ok = await adminConfirmVipV64('Confirmar plan normal', 'Vas a cambiar el PLAN NORMAL para todos los usuarios sin plan especial.\n\n' + planShortV66(s));
+    if(!ok) return;
+    adminVipPresetV62(kind);
+    await adminSaveVipSettingsV62(true);
+  };
+  var oldAdminSaveUser = window.adminSaveUserVipSettingsV63;
+  window.adminSaveUserVipSettingsV63 = async function(skipConfirm){
+    var raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+    var user = resolveAdminVipTargetV63(raw);
+    var uid = user ? String(user.uid || user.id || '') : raw;
+    if(!uid){ showToast('Primero elige un usuario'); return; }
+    var settings = readAdminUserVipFormV63();
+    if(!skipConfirm){
+      var ok = await adminConfirmVipV64('Activar plan especial', 'Usuario: ' + String((user && user.email) || uid) + '\n\nEste usuario usara PLAN ESPECIAL.\n' + planShortV66(settings));
+      if(!ok) return;
+    }
+    var bridge = getAdminBridge();
+    try{
+      if(!bridge || !bridge.adminSaveUserVipSettings) throw new Error('Sin admin');
+      await bridge.adminSaveUserVipSettings(uid, settings);
+      showToast('Plan especial guardado');
+      await adminRefresh();
+      adminVipPlanViewV64 = 'user';
+      renderAdminPanel();
+    }catch(error){ showToast('No se pudo guardar el plan especial'); }
+  };
+  window.adminClearUserVipSettingsV63 = async function(){
+    var raw = (document.getElementById('adminVipUserTargetV63')?.value || '').trim();
+    var user = resolveAdminVipTargetV63(raw);
+    var uid = user ? String(user.uid || user.id || '') : raw;
+    if(!uid){ showToast('Primero elige un usuario'); return; }
+    var ok = await adminConfirmVipV64('Desactivar plan especial', 'Este usuario volvera al PLAN NORMAL.');
+    if(!ok) return;
+    var bridge = getAdminBridge();
+    try{
+      if(!bridge || !bridge.adminClearUserVipSettings) throw new Error('Sin admin');
+      await bridge.adminClearUserVipSettings(uid);
+      showToast('Plan especial desactivado');
+      await adminRefresh();
+      adminVipPlanViewV64 = 'user';
+      renderAdminPanel();
+    }catch(error){ showToast('No se pudo desactivar'); }
+  };
+  window.renderAdminUsers = function(list){
+    var users = filterAdminItems(adminCache.users || []);
+    if(!users.length){ list.innerHTML = '<div class="admin-empty">Todavia no hay usuarios sincronizados. Abre la app con una cuenta de usuario para que se cree su registro.</div>'; return; }
+    list.innerHTML = users.map(function(user){
+      var uid=String(user.uid||user.id||''); var shortUid=uid?uid.slice(0,8)+'...':'sin uid'; var name=user.displayName||user.email||user.name||'Usuario demo';
+      var wallet=Number(user.wallet||0); var cycle=Number(user.cycle||1); var completed=Number(user.completed||0); var withdrawable=Number(user.withdrawable||0); var status=String(user.status||(user.blocked?'blocked':'active')).toLowerCase(); var blocked=Boolean(user.blocked||status==='blocked');
+      var special=user.vipSettingsOverride||user.customVipSettings; var isSpecial=special&&special.active!==false; var settings=isSpecial?planSettingsV66(special):getAdminVipSettingsV62(); var p=planAtV66(settings,cycle||1);
+      var planChip='<div class="admin-user-plan-chip-v66 ' + (isSpecial?'special':'normal') + '"><div><span>' + (isSpecial?'Plan especial activo':'Plan normal') + '</span><strong>VIP' + cycle + ' recarga ' + safeMoneyV66(p.recharge) + ' · gana ' + safeMoneyV66(p.gain) + '</strong></div><b>' + (isSpecial?'ESPECIAL':'NORMAL') + '</b></div>';
+      return '<article class="admin-user-card ' + (blocked?'blocked':'') + '"><div class="admin-user-top"><div><strong>' + name + '</strong><span>' + (user.email||shortUid) + '</span><span>UID: ' + shortUid + '</span><small>Recargado: ' + safeMoneyV66(Number(user.totalRecharged||0)) + ' · Retirado: ' + safeMoneyV66(Number(user.totalWithdrawn||0)) + '</small>' + planChip + '</div><div class="admin-pill ' + (blocked?'blocked':'') + '">' + (blocked?'Bloqueado':'VIP'+cycle) + '</div></div><div class="admin-user-stats"><div class="admin-user-stat"><span>Saldo</span><strong>' + safeMoneyV66(wallet) + '</strong></div><div class="admin-user-stat"><span>Compras</span><strong>' + completed + '/5</strong></div><div class="admin-user-stat"><span>Retirable</span><strong>' + safeMoneyV66(withdrawable) + '</strong></div></div><div class="admin-user-actions v47"><button class="admin-btn" onclick="adminRechargeUser(\'' + uid + '\',10)">+ S/10</button><button class="admin-btn" onclick="adminRechargeUser(\'' + uid + '\',20)">+ S/20</button><button class="admin-btn" onclick="adminRechargeUser(\'' + uid + '\',30)">+ S/30</button><button class="admin-btn primary" onclick="adminRechargeCustom(\'' + uid + '\')">Agregar</button><button class="admin-btn negative" onclick="adminRemoveCustom(\'' + uid + '\')">Quitar</button><button class="admin-btn" onclick="adminToggleBlockUser(\'' + uid + '\', ' + (blocked?'false':'true') + ')">' + (blocked?'Activar':'Bloquear') + '</button><button class="admin-btn negative" onclick="adminDeleteUser(\'' + uid + '\')">Eliminar</button><button class="admin-btn" onclick="adminCopyUid(\'' + uid + '\')">UID</button></div></article>';
+    }).join('');
+  };
+  window.renderProfileDashboard = function(){
+    var info = getVipRankInfo(); var total = getDemoTotal(); var withdrawable = getWithdrawAvailable(); var totalText = safeMoneyV66(total); var shortTotal = total >= 1000 ? ('S/ ' + Number(total).toFixed(0)) : totalText;
+    var profileTotal=document.getElementById('profileBalanceTotalValue'), profileSub=document.getElementById('profileBalanceSubText'), profileVip=document.getElementById('profileBalanceVipPill'), walletValue=document.getElementById('profileWalletValue'), rankValue=document.getElementById('profileRankValue'), rechargeValue=document.getElementById('profileRechargeValue'), rechargeHint=document.getElementById('profileRechargeBalanceHint'), dailyEarnings=document.getElementById('profileDailyEarnings');
+    if(profileTotal) profileTotal.textContent=totalText;
+    if(profileSub) profileSub.textContent=withdrawable>0?('Retiro disponible: '+safeMoneyV66(withdrawable)):(info.completed+'/5 compras · '+info.rank.name.replace('Clasificacion ','').replace('Clasificación ',''));
+    if(profileVip) profileVip.textContent=info.rank.badge; if(walletValue) walletValue.textContent=shortTotal; if(rankValue) rankValue.textContent=info.rank.badge; if(rechargeValue) rechargeValue.textContent='S/ +'; if(rechargeHint) rechargeHint.textContent='Saldo: '+totalText; if(dailyEarnings) dailyEarnings.textContent=safeMoneyV66(shouldHideAccountData()?0:Number(demoState.rewardToday||0));
+    var planNow=getVipPlan(); var planTitle=document.getElementById('profileCurrentPlanTitleV65'), planMeta=document.getElementById('profileCurrentPlanMetaV65'), planMode=document.getElementById('profileCurrentPlanModeV65');
+    if(planTitle) planTitle.textContent=window.vipPlanSourceTextV65() + ' activo · VIP' + getDemoCycle();
+    if(planMeta) planMeta.textContent=window.vipPlanKindTextV65(vipSettingsV62) + ' · recarga ' + safeMoneyV66(planNow.recharge) + ' · gana ' + safeMoneyV66(planNow.gain);
+    if(planMode) planMode.textContent=window.vipPlanTagTextV65();
+    var points=document.getElementById('pointsLabel'); if(points) points.textContent=info.rank.name.replace('Clasificacion ','').replace('Clasificación ','');
+    var wallet=document.getElementById('walletLabel'); if(wallet) wallet.textContent='Saldo';
+    var rechargeLabel=document.getElementById('giftLabel'); if(rechargeLabel) rechargeLabel.textContent='Recargar';
+  };
+  window.renderRechargeScreen = function(){
+    var balanceEl=document.getElementById('rechargeCurrentBalance'), selectedEl=document.getElementById('rechargeSelectedAmount'), grid=document.getElementById('rechargeAmountGrid'); if(!balanceEl||!selectedEl||!grid) return;
+    demoState=normalizeDemoState(demoState); var plan=getVipPlan(); var options=getRechargeOptionsForVip(); if(!options.includes(Number(selectedRechargeAmountV41))) selectedRechargeAmountV41=options[0];
+    balanceEl.textContent=safeMoneyV66(demoState.wallet||0); selectedEl.textContent=safeMoneyV66(selectedRechargeAmountV41);
+    grid.innerHTML=options.map(function(amount){ return '<button class="recharge-amount-btn-v41 ' + (amount===selectedRechargeAmountV41?'active':'') + '" type="button" onclick="selectRechargeAmount(' + amount + ')">' + safeMoneyV66(amount) + '</button>'; }).join('');
+    var badge=document.getElementById('rechargeVipBadge'), level=document.getElementById('rechargeVipLevel'), gain=document.getElementById('rechargeVipGain'), note=document.getElementById('rechargePlanNote'), title=document.getElementById('rechargeSectionTitle');
+    if(badge) badge.textContent='VIP'+getDemoCycle(); if(level) level.textContent='VIP'+getDemoCycle()+' · '+plan.label; if(gain) gain.textContent=safeMoneyV66(getCycleTotalGain()); if(title) title.textContent='Monto permitido para VIP'+getDemoCycle(); if(note) note.textContent='Este VIP solo permite solicitar '+safeMoneyV66(plan.recharge)+'. Tu saldo no cambia hasta que el gerente apruebe la recarga.';
+    var planText=document.getElementById('rechargeCurrentPlanTextV65'), planTag=document.getElementById('rechargeCurrentPlanTagV65');
+    if(planText) planText.textContent=window.vipPlanSourceTextV65() + ' activo · ' + window.vipPlanKindTextV65(vipSettingsV62);
+    if(planTag) planTag.textContent=window.vipPlanTagTextV65();
+    var preview=document.getElementById('rechargeMessagePreviewV51'); if(preview) preview.textContent=buildRechargeMessageV51(Number(selectedRechargeAmountV41||0));
+  };
+})();
+</script>
+
+
+
+<script>
+/* v67: planes VIP mas pequenos, seccion especial clara */
+(function(){
+  var vipViewV67 = 'general';
+  function fmt(n){ try { return money(Number(n||0)); } catch(e){ return 'S/ ' + Number(n||0).toFixed(2); } }
+  function settings(s){
+    try { return normalizeVipSettingsV62(s || (adminCache && adminCache.vipSettings) || (window.getVipSettingsV62 && window.getVipSettingsV62()) || vipSettingsV62); }
+    catch(e){ return {mode:'linear',baseRecharge:10,rechargeStep:10,baseGain:5,gainStep:5,taskCount:5,active:true,plans:null}; }
+  }
+  function planAt(s,l){
+    s = settings(s);
+    try { return buildVipPlanForSettingsV62(s, l||1); }
+    catch(e){
+      var lvl=Math.max(1,Number(l||1));
+      if(s.mode==='double') return {badge:'VIP'+lvl,recharge:Number(s.baseRecharge||20)*Math.pow(2,lvl-1),gain:Number(s.baseGain||10)*Math.pow(2,lvl-1),taskCount:Number(s.taskCount||5)};
+      return {badge:'VIP'+lvl,recharge:Number(s.baseRecharge||10)+(lvl-1)*Number(s.rechargeStep||10),gain:Number(s.baseGain||5)+(lvl-1)*Number(s.gainStep||5),taskCount:Number(s.taskCount||5)};
+    }
+  }
+  function kindText(s){
+    s=settings(s);
+    if(s.mode==='linear' && Number(s.baseRecharge)===10 && Number(s.rechargeStep)===10 && Number(s.baseGain)===5 && Number(s.gainStep)===5) return 'Plan bajo';
+    if(s.mode==='double' && Number(s.baseRecharge)===20 && Number(s.baseGain)===10) return 'Plan anterior';
+    return 'Plan personalizado';
+  }
+  function shortLine(s){
+    var p1=planAt(s,1), p2=planAt(s,2), p3=planAt(s,3);
+    return 'VIP1 ' + fmt(p1.recharge) + ' gana ' + fmt(p1.gain) + ' · VIP2 ' + fmt(p2.recharge) + ' gana ' + fmt(p2.gain) + ' · VIP3 ' + fmt(p3.recharge) + ' gana ' + fmt(p3.gain);
+  }
+  function preview(s){
+    s=settings(s);
+    return Array.from({length:6}, function(_,i){ var p=planAt(s,i+1); return '<div class="admin-plan-preview-item-v62 v63 v64"><span>'+p.badge+'</span><strong>'+fmt(p.recharge)+' · gana '+fmt(p.gain)+'</strong></div>'; }).join('');
+  }
+  function specialUsers(){
+    try { return (adminCache.users || []).filter(function(u){ var s=u.vipSettingsOverride || u.customVipSettings; return s && s.active !== false; }); }
+    catch(e){ return []; }
+  }
+  function specialSummary(){
+    var users=specialUsers();
+    return '<div class="admin-vip-special-summary-v67"><div class="count">'+users.length+'</div><div><strong>Usuarios con plan especial</strong><span>Solo aqui aparecen clientes con precio individual activo.</span></div><b>'+users.length+' activos</b></div>';
+  }
+  function specialList(){
+    var users=specialUsers();
+    if(!users.length){
+      return '<div class="admin-special-list-v66"><h4>Lista de planes especiales <span>0</span></h4><div class="admin-special-empty-v66">Todavia no hay usuarios con plan especial. Busca un usuario, elige un precio y guarda.</div></div>';
+    }
+    return '<div class="admin-special-list-v66"><h4>Lista de planes especiales <span>'+users.length+'</span></h4>' + users.map(function(u){
+      var uid=String(u.uid||u.id||'');
+      var name=String(u.displayName||u.name||u.email||'Usuario');
+      var email=String(u.email||'sin correo');
+      var st=settings(u.vipSettingsOverride || u.customVipSettings);
+      var p1=planAt(st,1), p2=planAt(st,2);
+      return '<div class="admin-special-user-row-v66"><div><strong>'+name+'</strong><span>'+email+'</span><small>'+kindText(st)+' · VIP1 '+fmt(p1.recharge)+' gana '+fmt(p1.gain)+' · VIP2 '+fmt(p2.recharge)+' gana '+fmt(p2.gain)+'</small></div><div class="actions"><button class="admin-btn primary" type="button" onclick="adminSelectVipUserV64(\''+uid.replace(/'/g,"\\'")+'\')">Elegir</button><button class="admin-btn negative" type="button" onclick="adminClearUserVipSettingsForUidV67(\''+uid.replace(/'/g,"\\'")+'\')">Quitar</button></div></div>';
+    }).join('') + '</div>';
+  }
+  function currentStatus(s,type,user){
+    s=settings(s);
+    var isSpecial=type==='special';
+    var p1=planAt(s,1), p2=planAt(s,2);
+    var who=isSpecial && user ? String(user.email || user.displayName || user.uid || user.id || 'usuario') : 'Todos los usuarios sin especial';
+    var btn=isSpecial ? '<button class="mini-danger" type="button" onclick="adminClearUserVipSettingsV63()">Quitar</button>' : '<em>Activo</em>';
+    return '<div class="admin-plan-status-v66 '+(isSpecial?'special':'normal')+'"><div><span>'+(isSpecial?'Plan especial activo':'Plan normal activo')+'</span><strong>'+kindText(s)+' · '+(s.mode==='double'?'Doble':'Lineal')+'</strong><small>'+who+' · VIP1 '+fmt(p1.recharge)+' gana '+fmt(p1.gain)+' · VIP2 '+fmt(p2.recharge)+' gana '+fmt(p2.gain)+'</small></div>'+btn+'</div>';
+  }
+  function readUserForm(){
+    return settings({
+      mode:String(document.getElementById('adminUserVipModeV63')?.value||'linear'),
+      baseRecharge:Number(String(document.getElementById('adminUserVipBaseRechargeV63')?.value||'10').replace(',','.')),
+      rechargeStep:Number(String(document.getElementById('adminUserVipRechargeStepV63')?.value||'10').replace(',','.')),
+      baseGain:Number(String(document.getElementById('adminUserVipBaseGainV63')?.value||'5').replace(',','.')),
+      gainStep:Number(String(document.getElementById('adminUserVipGainStepV63')?.value||'5').replace(',','.')),
+      taskCount:Number(document.getElementById('adminUserVipTaskCountV63')?.value||5),
+      active:true,plans:null
+    });
+  }
+  function readGeneralForm(){
+    return settings({
+      mode:String(document.getElementById('adminVipModeV62')?.value||'linear'),
+      baseRecharge:Number(String(document.getElementById('adminVipBaseRechargeV62')?.value||'10').replace(',','.')),
+      rechargeStep:Number(String(document.getElementById('adminVipRechargeStepV62')?.value||'10').replace(',','.')),
+      baseGain:Number(String(document.getElementById('adminVipBaseGainV62')?.value||'5').replace(',','.')),
+      gainStep:Number(String(document.getElementById('adminVipGainStepV62')?.value||'5').replace(',','.')),
+      taskCount:Number(document.getElementById('adminVipTaskCountV62')?.value||5),
+      active:true,plans:null
+    });
+  }
+  window.adminClearUserVipSettingsForUidV67 = function(uid){
+    var input=document.getElementById('adminVipUserTargetV63'); if(input) input.value=uid;
+    var user=(adminCache.users||[]).find(function(u){return String(u.uid||u.id||'')===String(uid);});
+    var search=document.getElementById('adminVipUserSearchV64'); if(search && user) search.value=String(user.email||user.displayName||uid);
+    if(window.adminClearUserVipSettingsV63) window.adminClearUserVipSettingsV63();
+  };
+  window.adminSetVipPlanViewV67 = function(view){ vipViewV67 = view === 'user' ? 'user' : 'general'; renderAdminPanel(); };
+  window.renderAdminVipPreviewV62 = function(){ var wrap=document.getElementById('adminVipPreviewV62'); if(wrap) wrap.innerHTML=preview(readGeneralForm()); var badge=document.getElementById('adminVipModeBadgeV63'); if(badge) badge.textContent=readGeneralForm().mode==='double'?'Doble':'Lineal'; };
+  window.renderAdminUserVipPreviewV63 = function(){ var wrap=document.getElementById('adminUserVipPreviewV63'); if(wrap) wrap.innerHTML=preview(readUserForm()); };
+  window.renderAdminVipPlansV62 = function(list){
+    var st=settings((adminCache&&adminCache.vipSettings)||null);
+    list.innerHTML = '<div class="admin-plan-card-v62 v63 v64">' +
+      '<div class="admin-plan-head-v62 v64"><div><strong>Planes VIP</strong><span>Elige plan normal para todos o especial para un solo usuario.</span></div><div class="admin-plan-badge-v62 v63 v64">Admin</div></div>' +
+      '<div class="admin-plan-tabs-v64">' +
+      '<button class="admin-plan-tab-v64 '+(vipViewV67==='general'?'active':'')+'" type="button" onclick="adminSetVipPlanViewV67(\'general\')"><strong>Plan normal</strong><span>Todos</span></button>' +
+      '<button class="admin-plan-tab-v64 '+(vipViewV67==='user'?'active':'')+'" type="button" onclick="adminSetVipPlanViewV67(\'user\')"><strong>Plan especial</strong><span>1 usuario</span></button>' +
+      '</div>' + (vipViewV67==='user' ? adminUserVipScreenV67(st) : adminGeneralVipScreenV67(st)) + '</div>';
+    if(vipViewV67 === 'user'){
+      setTimeout(function(){
+        try{ renderAdminUserSearchV64(); renderAdminSelectedUserPlanBoxV65(); }catch(e){}
+      },0);
+    }
+  };
+  function adminGeneralVipScreenV67(st){
+    st=settings(st);
+    return '<section class="admin-plan-section-v63 general v64">' +
+      '<div class="admin-plan-title-v63 v64"><div class="admin-plan-icon-v63 v64">N</div><div><strong>Plan normal</strong><span>Precio para todos los usuarios sin especial.</span></div><div class="admin-plan-badge-v62 v63 v64" id="adminVipModeBadgeV63">'+(st.mode==='double'?'Doble':'Lineal')+'</div></div>' +
+      currentStatus(st,'normal') +
+      '<div class="admin-plan-choice-row-v64"><button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyGeneralPlanV64(\'linearLow\')"><strong>Plan bajo</strong><span>10/5 · 20/10 · 30/15</span></button><button class="admin-plan-choice-v64" type="button" onclick="adminApplyGeneralPlanV64(\'doubleOld\')"><strong>Plan anterior</strong><span>20/10 · 40/20 · 80/40</span></button></div>' +
+      '<div class="admin-plan-grid-v62 v63 v64">' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Forma</label><select id="adminVipModeV62" onchange="renderAdminVipPreviewV62()"><option value="linear" '+(st.mode==='linear'?'selected':'')+'>Lineal</option><option value="double" '+(st.mode==='double'?'selected':'')+'>Doble</option></select></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Tareas</label><input id="adminVipTaskCountV62" type="number" inputmode="numeric" min="1" max="20" value="'+Number(st.taskCount||5)+'" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminVipBaseRechargeV62" type="number" inputmode="decimal" min="1" step="1" value="'+Number(st.baseRecharge||10)+'" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminVipBaseGainV62" type="number" inputmode="decimal" min="1" step="1" value="'+Number(st.baseGain||5)+'" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Sube recarga</label><input id="adminVipRechargeStepV62" type="number" inputmode="decimal" min="0" step="1" value="'+Number(st.rechargeStep||10)+'" oninput="renderAdminVipPreviewV62()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Sube gana</label><input id="adminVipGainStepV62" type="number" inputmode="decimal" min="0" step="1" value="'+Number(st.gainStep||5)+'" oninput="renderAdminVipPreviewV62()"></div>' +
+      '</div><div class="admin-plan-mini-note-v63 v64"><b>i</b><span>Al guardar, se pide confirmacion. El plan normal no toca a usuarios con especial.</span></div>' +
+      '<div class="admin-plan-preview-v62 v63 v64" id="adminVipPreviewV62">'+preview(st)+'</div>' +
+      '<div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveVipSettingsV62()">Guardar normal</button><button class="admin-btn" type="button" onclick="adminRefreshVipSettingsV62()">Actualizar</button></div>' +
+      '</section>';
+  }
+  function adminUserVipScreenV67(st){
+    st=settings(st);
+    return '<section class="admin-plan-section-v63 single v64">' +
+      '<div class="admin-plan-title-v63 v64"><div class="admin-plan-icon-v63 v64">E</div><div><strong>Plan especial</strong><span>Busca usuario y guarda un precio solo para esa cuenta.</span></div><div class="admin-plan-badge-v62 v63 v64">1 usuario</div></div>' +
+      specialSummary() + specialList() +
+      '<div id="adminUserCurrentPlanBoxV65">'+currentStatus(st,'normal')+'</div>' +
+      '<div class="admin-plan-user-search-v64"><div class="admin-plan-field-v62 v63 v64"><label>Buscar usuario</label><input id="adminVipUserSearchV64" placeholder="Correo, nombre o UID" oninput="renderAdminUserSearchV64()"></div><input id="adminVipUserTargetV63" type="hidden" value=""><div id="adminVipUserFoundV63" class="admin-plan-user-label-v63 v64 hidden">Usuario seleccionado</div><div class="admin-plan-user-results-v64" id="adminVipUserResultsV64"></div></div>' +
+      '<div class="admin-plan-choice-row-v64"><button class="admin-plan-choice-v64 primary" type="button" onclick="adminApplyUserPlanV64(\'linearLow\')"><strong>Activar bajo</strong><span>10/5 · 20/10 · 30/15</span></button><button class="admin-plan-choice-v64" type="button" onclick="adminApplyUserPlanV64(\'fromGeneral\')"><strong>Copiar normal</strong><span>Usa el plan normal</span></button></div>' +
+      '<div class="admin-plan-grid-v62 v63 v64">' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Forma</label><select id="adminUserVipModeV63" onchange="renderAdminUserVipPreviewV63()"><option value="linear">Lineal</option><option value="double">Doble</option></select></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Tareas</label><input id="adminUserVipTaskCountV63" type="number" inputmode="numeric" min="1" max="20" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 recarga</label><input id="adminUserVipBaseRechargeV63" type="number" inputmode="decimal" min="1" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>VIP1 gana</label><input id="adminUserVipBaseGainV63" type="number" inputmode="decimal" min="1" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Sube recarga</label><input id="adminUserVipRechargeStepV63" type="number" inputmode="decimal" min="0" step="1" value="10" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '<div class="admin-plan-field-v62 v63 v64"><label>Sube gana</label><input id="adminUserVipGainStepV63" type="number" inputmode="decimal" min="0" step="1" value="5" oninput="renderAdminUserVipPreviewV63()"></div>' +
+      '</div>' +
+      '<div class="admin-plan-preview-v62 v63 v64" id="adminUserVipPreviewV63">'+preview(st)+'</div>' +
+      '<div class="admin-plan-actions-v62 v63 v64"><button class="admin-btn primary" type="button" onclick="adminSaveUserVipSettingsV63()">Guardar especial</button><button class="admin-btn danger" type="button" onclick="adminClearUserVipSettingsV63()">Quitar especial</button></div>' +
+      '</section>';
+  }
+  window.renderAdminSelectedUserPlanBoxV65 = function(){
+    var box=document.getElementById('adminUserCurrentPlanBoxV65'); if(!box) return;
+    var raw=(document.getElementById('adminVipUserTargetV63')?.value||'').trim().toLowerCase();
+    var user=(adminCache.users||[]).find(function(u){ return String(u.uid||u.id||'').toLowerCase()===raw || String(u.email||'').toLowerCase()===raw || String(u.uid||u.id||'').toLowerCase().startsWith(raw); });
+    if(!user){ box.innerHTML='<div class="admin-plan-status-v66 normal"><div><span>Usuario no seleccionado</span><strong>Elige un usuario</strong><small>Busca por correo, nombre o UID para ver su plan.</small></div><em>Info</em></div>'; return; }
+    var sp=user.vipSettingsOverride || user.customVipSettings;
+    var isSp=sp && sp.active !== false;
+    box.innerHTML=currentStatus(isSp ? sp : settings(), isSp ? 'special' : 'normal', user);
+  };
+})();
+</script>
 </body>
 </html>
